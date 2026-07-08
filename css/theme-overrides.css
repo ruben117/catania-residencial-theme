@@ -37,6 +37,7 @@
 
 {% set primary_color = theme.global_colors.primary.color  %}
 {% set secondary_color = theme.global_colors.secondary.color %}
+{% set accent_color = theme.global_colors.accent.color %}
 
 /* 1c. Typography */
 

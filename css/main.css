@@ -1,9 +1,31 @@
 /* Theme base styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 /* Tools
 Any animations, or functions used throughout the project.
 Note: _macros.css needs to be imported into each stylesheet where macros are used and not included here
 */
+:root {
+  --primary-color: #0D2754;
+  --secondary-color: #B8A050;
+  --accent-color: #CA002F;
+  --primary-color-black: #071730;
+  --text-color: #72706A;
+  --heading-color: #161616;
+  --legal-color: #455164;
+  --font-family-base: 'Playfair Display', 'Roboto', sans-serif;
+  --font-size-base: 16px;
+  --font-size-disclaimer:10px;
+  --font-size-heading: clamp(30px, 1.9vw, 40px);
+  --font-size-heading-big: clamp(1.75rem, 2.5vw, 2.2rem);
+  --font-size-subheading: 40px;
+  --letter-spacing-base: 5px;
+  --font-weight-base: 400;
+  --font-weight-thin: 200;
+  --font-weight-heading: 500;
+  --font-weight-heading-black: 700;
+  --padding-btn: 10px 20px;
+}
 
 /* Generic
 This is where reset, normalize & box-sizing styles go.
@@ -33,6 +55,7 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 */
 
 {% include './components/_header.css' %}
+{% include './components/_footer.css' %}
 {% include './components/_default-modules.css' %}
 
 /* Utilities
@@ -40,3 +63,10 @@ Helper classes with ability to override anything that comes before it
 */
 
 {% include './utilities/_helper.css' %}
+
+html {
+  scroll-behavior: smooth;
+}
+body *{
+  font-family: "Playfair Display", serif;
+}

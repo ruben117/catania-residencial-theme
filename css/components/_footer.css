@@ -1,0 +1,205 @@
+/* ============================================================
+   FOOTER
+   Layout: 3 columnas (brand | oficina ventas | quejas+rrss)
+   ============================================================ */
+
+.footer {
+  background-color: #F5F3EF !important;
+  border-top: 1px solid #e2ddd7;
+}
+
+.footer__inner {
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+/* ── Grid de 3 columnas ───────────────────────────────────── */
+
+.footer__row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── Columna 1: Brand ────────────────────────────────────── */
+
+.footer__col--brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Logos lado a lado */
+.footer__logos {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer__logos .hs_cos_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logos img {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__logos .footer_logo_madeira img,
+.footer__logos [id*="footer_logo_madeira"] img {
+  width: 110px;
+}
+
+.footer__logos .footer_logo_vinte img,
+.footer__logos [id*="footer_logo_vinte"] img {
+  width: 120px;
+}
+
+/* Dirección y datos legales */
+.footer__address {
+  font-style: normal;
+}
+
+.footer__address p,
+.footer__address .hs_cos_wrapper p {
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--secondary-color);
+  margin: 0 0 10px;
+}
+
+.footer__address p:last-child,
+.footer__address .hs_cos_wrapper p:last-child {
+  margin-bottom: 0;
+}
+
+.footer__address strong { font-weight: 700; }
+
+.footer__address a,
+.footer__address .hs_cos_wrapper a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.footer__address a:hover,
+.footer__address .hs_cos_wrapper a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* ── Columnas 2 y 3: Contenido ───────────────────────────── */
+
+.footer__col--ventas,
+.footer__col--quejas {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer__col--ventas h4,
+.footer__col--ventas .hs_cos_wrapper h4,
+.footer__col--quejas h4,
+.footer__col--quejas .hs_cos_wrapper h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+}
+
+.footer__col--ventas p,
+.footer__col--ventas .hs_cos_wrapper p,
+.footer__col--quejas p,
+.footer__col--quejas .hs_cos_wrapper p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--secondary-color);;
+  margin: 0 0 10px;
+}
+
+.footer__col--ventas p:last-child,
+.footer__col--ventas .hs_cos_wrapper p:last-child,
+.footer__col--quejas p:last-child,
+.footer__col--quejas .hs_cos_wrapper p:last-child {
+  margin-bottom: 0;
+}
+
+.footer__col--ventas a,
+.footer__col--ventas .hs_cos_wrapper a,
+.footer__col--quejas a,
+.footer__col--quejas .hs_cos_wrapper a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer__col--ventas a:hover,
+.footer__col--quejas a:hover {
+  text-decoration: underline;
+}
+
+/* ── Redes sociales (@hubspot/social_follow) ─────────────── */
+
+.footer__col--quejas .hs_cos_wrapper_type_social_follow {
+  margin-top: 20px;
+}
+
+/* El módulo social_follow de HubSpot genera .hs-social-follow */
+.footer__col--quejas .hs-social-follow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__col--quejas .hs-social-follow__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  color: #ffffff;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.footer__col--quejas .hs-social-follow__link:hover {
+  opacity: 0.75;
+}
+
+.footer__col--quejas .hs-social-follow__link img,
+.footer__col--quejas .hs-social-follow__link svg {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+/* ── Responsive: tablet (2 cols) ─────────────────────────── */
+
+@media (max-width: 1023px) {
+  .footer__row {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Responsive: mobile (1 col) ──────────────────────────── */
+
+@media (max-width: 599px) {
+  .footer__row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

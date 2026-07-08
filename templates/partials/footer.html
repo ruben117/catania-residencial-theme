@@ -2,42 +2,74 @@
   templateType: global_partial
   label: Footer
 -->
-<footer class="footer">
-  {% dnd_area "footer"
-    label="Footer",
-    class="footer__container content-wrapper"
-  %}
+<footer class="footer" aria-label="Pie de página">
+  <div class="footer__inner content-wrapper">
 
-    {# Social follow and copyright #}
+    <div class="footer__row">
 
-    {% dnd_section %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path="../../modules/social-follow" %}
-            {% module_attribute "social_link" is_json=True %}
-              [
-                {"social_account": "facebook-f"},
-                {"social_account": "linkedin-in"},
-                {"social_account": "twitter"},
-                {"social_account": "instagram"}
-              ]
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row
-          margin={
-            "top": 12,
-            "bottom": 12
-          }
-        %}
-          {% dnd_module
-            path="@hubspot/rich_text",
-            html='<div style="text-align: center; font-size: 0.7rem;"><span>© {{ year }} All rights reserved.</span></div>'
+      {# ── Columna 1: Logos + datos legales ─────────────────── #}
+      <div class="footer__col footer__col--brand">
+
+        <div class="footer__logos">
+          {% module "footer_logo_madeira"
+            path="@hubspot/logo",
+            label="Logo — Real Madeira",
+            img={
+              "override_inherited_src": true,
+              "src": get_asset_url("../../images/logo-real-madeira-color.png"),
+              "alt": "Real Madeira – Comunidad Vinte",
+              "width": 110,
+              "loading": "lazy"
+            }
           %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+          {% module "footer_logo_vinte"
+            path="@hubspot/logo",
+            label="Logo — Vinte",
+            img={
+              "override_inherited_src": true,
+              "src": get_asset_url("../../images/logo-vinte-color.png"),
+              "alt": "Vinte",
+              "width": 120,
+              "loading": "lazy"
+            }
+          %}
+        </div>
 
-  {% end_dnd_area %}
+        <address class="footer__address">
+          {% module "footer_address"
+            path="@hubspot/rich_text",
+            label="Dirección y datos legales",
+            html="<p>PROMOTORA DE VIVIENDAS INTEGRALES SA DE CV<br>No. Reg. 3697-2022 de fecha 23 de agosto 2022<br>Av Real del Sol, Mz.16, Lt. 1, Real del Sol, Ojo de Agua, 55770, Tecámac, Estado de México</p><p><a href="https://www.vinte.com.mx/privacidad?hsLang=es-mx"><strong>Aviso de privacidad</strong></a></p><p>Copyright {{ year }} todos los derechos reservados</p>"
+          %}
+        </address>
+
+      </div>
+
+      {# ── Columna 2: Oficina de Ventas ──────────────────────── #}
+      <div class="footer__col footer__col--ventas">
+        {% module "footer_ventas"
+          path="@hubspot/rich_text",
+          label="Oficina de Ventas",
+          html="<h4>Oficina de Ventas</h4><p>Av. Paseo del Mayab Mz. 22 Lt.2<br>Playa del Carmen, Quintana Roo<br>C.P. 77714<br>Tel. (55) 984 110 5050</p><p>Horario de atención:<br>Lunes a domingo de 09:00 a 19:00 hrs.</p><p>Email: <a href='mailto:tucasaodepa@vinte.com'>tucasaodepa@vinte.com</a></p>"
+        %}
+      </div>
+
+      {# ── Columna 3: Quejas y sugerencias + RRSS ───────────── #}
+      <div class="footer__col footer__col--quejas">
+        {% module "footer_quejas"
+          path="@hubspot/rich_text",
+          label="Quejas y sugerencias",
+          html="<h4>Quejas y sugerencias</h4><p>Tel. 800 841 3606</p><p>Horario de atención:<br>Lunes a domingo de 09:30 a 19:30 hrs.</p><p>Email: <a href='mailto:hola@vinte.com'>hola@vinte.com</a></p>"
+        %}
+        {% module "footer_social"
+          path="@hubspot/social_follow",
+          label="Redes sociales"
+        %}
+      </div>
+
+    </div>
+
+  </div>
+  {# WhatsApp Floating Bubble — fuera del DnD, position:fixed en CSS #}
+  {% module "whatsapp_bubble" path="../../modules/whatsapp-bubble" %}
 </footer>
