@@ -61,6 +61,7 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 {% include './components/_respaldo-vinte.css' %}
 {% include './components/_amenidades.css' %}
 {% include './components/_ubicacion.css' %}
+{% include './components/_modelos-disponibles.css' %}
 {% include './components/_default-modules.css' %}
 
 /* Utilities

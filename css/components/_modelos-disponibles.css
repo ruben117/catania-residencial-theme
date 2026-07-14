@@ -1,0 +1,14 @@
+/* ============================================================
+   MODELOS DISPONIBLES
+   Encabezado (título+subtítulo | descripción) + grid de modelos.
+   ============================================================ */
+
+.modelos-disponibles__grid {
+  margin-top: 3rem;
+}
+
+@media (max-width: 767px) {
+  .modelos-disponibles__grid {
+    margin-top: 2rem;
+  }
+}

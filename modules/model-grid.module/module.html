@@ -1,0 +1,68 @@
+<div class="model-grid">
+  {% for item in module.items %}
+    <div class="model-grid__card">
+
+      {# Fila 1 — imágenes + badge #}
+      <div class="model-grid__images">
+        {% for img in item.images %}
+          {% if img.image.src %}
+            <img class="model-grid__image" src="{{ img.image.src }}" alt="{{ item.model_name | default('') | escape_attr }}" loading="lazy">
+          {% endif %}
+        {% endfor %}
+        {% if item.badge_text %}
+          <span class="model-grid__badge">{{ item.badge_text | escape_html }}</span>
+        {% endif %}
+      </div>
+
+      {# Fila 2 — nombre/tipo + precio #}
+      <div class="model-grid__header">
+        <div class="model-grid__identity">
+          {% if item.model_name %}
+            <h3 class="model-grid__name">{{ item.model_name | escape_html }}</h3>
+          {% endif %}
+          {% if item.model_type %}
+            <p class="model-grid__type">{{ item.model_type | escape_html }}</p>
+          {% endif %}
+        </div>
+        <div class="model-grid__price-wrap">
+          {% if item.price %}
+            <p class="model-grid__price">{{ item.price | escape_html }}</p>
+          {% endif %}
+          {% if item.price_caption %}
+            <p class="model-grid__price-caption">{{ item.price_caption | escape_html }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      {# Fila 3 — detalles con iconos (border-top) #}
+      {% if item.specs|length %}
+        <div class="model-grid__specs">
+          {% for spec in item.specs %}
+            <span class="model-grid__spec">
+              {% if spec.spec_icon.src %}
+                <img class="model-grid__spec-icon" src="{{ spec.spec_icon.src }}" alt="" loading="lazy">
+              {% endif %}
+              {% if spec.caption %}<span class="model-grid__spec-label">{{ spec.caption | escape_html }}</span>{% endif %}
+              <span class="model-grid__spec-value">{{ spec.value | escape_html }}</span>
+            </span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {# Fila 4 — descripción #}
+      {% if item.description %}
+        <p class="model-grid__description">{{ item.description | escape_html }}</p>
+      {% endif %}
+
+      {# Fila 5 — botón #}
+      {% if item.button_text %}
+        <a class="model-grid__button"
+           href="{{ item.button_link.url.href | default('#') }}"
+           {% if item.button_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ item.button_text | escape_html }}
+        </a>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+</div>

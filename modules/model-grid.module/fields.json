@@ -1,0 +1,122 @@
+[
+  {
+    "name": "items",
+    "label": "Modelos",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 4,
+      "sorting_label_field": "items.model_name"
+    },
+    "children": [
+      {
+        "name": "images",
+        "label": "Imágenes (2)",
+        "type": "group",
+        "occurrence": {
+          "min": 2,
+          "max": 2,
+          "default": 2
+        },
+        "children": [
+          {
+            "name": "image",
+            "label": "Imagen",
+            "type": "image",
+            "responsive": false,
+            "resizable": false,
+            "show_loading": false,
+            "default": { "src": "", "alt": "" }
+          }
+        ],
+        "default": [
+          { "image": { "src": "", "alt": "" } },
+          { "image": { "src": "", "alt": "" } }
+        ]
+      },
+      {
+        "name": "badge_text",
+        "label": "Badge",
+        "type": "text",
+        "default": "Prototipo"
+      },
+      {
+        "name": "model_name",
+        "label": "Nombre",
+        "type": "text",
+        "default": "Nombre del modelo"
+      },
+      {
+        "name": "model_type",
+        "label": "Tipo de vivienda",
+        "type": "text",
+        "default": "Casa"
+      },
+      {
+        "name": "price",
+        "label": "Precio",
+        "type": "text",
+        "default": "$0 MXN*"
+      },
+      {
+        "name": "price_caption",
+        "label": "Texto bajo el precio",
+        "type": "text",
+        "default": "Precio de contado"
+      },
+      {
+        "name": "specs",
+        "label": "Detalles (icono + valor)",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 6,
+          "default": 4
+        },
+        "children": [
+          {
+            "name": "spec_icon",
+            "label": "Icono (SVG)",
+            "type": "image",
+            "responsive": false,
+            "resizable": false,
+            "show_loading": false,
+            "default": { "src": "", "alt": "" }
+          },
+          {
+            "name": "caption",
+            "label": "Etiqueta (opcional, ej. Rec.)",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "value",
+            "label": "Valor (ej. 84.00 m², 3)",
+            "type": "text",
+            "default": "0"
+          }
+        ]
+      },
+      {
+        "name": "description",
+        "label": "Descripción",
+        "type": "text",
+        "default": "Descripción breve del modelo."
+      },
+      {
+        "name": "button_text",
+        "label": "Texto del botón",
+        "type": "text",
+        "default": "Ver Galería y Detalles"
+      },
+      {
+        "name": "button_link",
+        "label": "Enlace del botón",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+        "default": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
+      }
+    ]
+  }
+]
