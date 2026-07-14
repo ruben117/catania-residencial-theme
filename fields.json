@@ -394,7 +394,7 @@
               }
             },
             "default": {
-              "size": 24,
+              "size": 16,
               "size_unit": "px"
             }
           }
@@ -455,7 +455,7 @@
             },
             "default": {
               "color": "#FFFFFF",
-              "size": 22,
+              "size": 18,
               "size_unit": "px"
             }
           },

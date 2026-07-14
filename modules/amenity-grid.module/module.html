@@ -1,0 +1,19 @@
+<div class="amenity-grid">
+  {% for item in module.items %}
+    {% set img_src = item.image.src | default(get_asset_url("../../images/grayscale-mountain.png"), true) %}
+    <div class="amenity-grid__item">
+      <img class="amenity-grid__image" src="{{ img_src }}" alt="{{ item.image.alt | default('') | escape_attr }}" loading="lazy">
+      <div class="amenity-grid__overlay">
+        {% if item.eyebrow_text %}
+          <p class="amenity-grid__eyebrow">{{ item.eyebrow_text | escape_html }}</p>
+        {% endif %}
+        {% if item.heading_text %}
+          <h3 class="amenity-grid__heading">{{ item.heading_text | escape_html }}</h3>
+        {% endif %}
+        {% if item.description_text %}
+          <p class="amenity-grid__description">{{ item.description_text | escape_html }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,70 @@
+/* ============================================================
+   RESPALDO VINTE
+   Imagen + badge overlay (dato destacado) + título/descripción
+   + fila de estadísticas.
+   ============================================================ */
+
+.respaldo-vinte .row-fluid:has(.respaldo-vinte__image) {
+  position: relative;
+}
+
+.respaldo-vinte__image img {
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
+/* Badge: dark box overlapping la esquina inferior derecha de la imagen */
+
+.respaldo-vinte__badge {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  bottom: -24px;
+  padding: 1.25rem 1.5rem;
+  position: absolute;
+  right: 24px;
+  width: 180px;
+}
+
+.respaldo-vinte__badge p {
+  color: #ffffff;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.respaldo-vinte__badge strong {
+  color: #ffffff;
+  display: block;
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-heading-black);
+  margin-bottom: 0.25rem;
+}
+
+/* Descripción de la columna derecha */
+
+.respaldo-vinte p {
+  color: var(--text-color);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+}
+
+/* Fila de estadísticas: separada del resto, ancho completo */
+
+.respaldo-vinte__stats {
+  margin: 10px 0px 60px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .respaldo-vinte__badge {
+    padding: 1rem 1.25rem;
+    right: 16px;
+    width: 150px;
+  }
+
+  .respaldo-vinte__stats {
+    margin: 10px 0px 30px;
+  }
+}

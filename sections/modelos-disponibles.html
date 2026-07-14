@@ -1,0 +1,48 @@
+<!--
+  templateType: section
+  label: Modelos disponibles
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/modelos-disponibles.jpg
+  description: "Encabezado de la sección de modelos disponibles: título+subtítulo a la izquierda, descripción a la derecha."
+-->
+{% dnd_section
+  class="modelos-disponibles",
+  background_color="#EEEAE1",
+  vertical_alignment="MIDDLE",
+  padding={
+    "default": { "top": 100, "bottom": 100 },
+    "mobile":  { "top": 60,  "bottom": 60 }
+  }
+%}
+  {% dnd_column
+    offset=0,
+    width=6
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/title-subtitle",
+        label="Encabezado",
+        offset=0, width=12,
+        eyebrow_text="Modelos disponibles",
+        eyebrow_tag="p",
+        heading_text="Casas nuevas en venta en Cancún: encuentra tu prototipo ideal.",
+        heading_tag="h2"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+  {% dnd_column
+    offset=6,
+    width=6
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        label="Descripción",
+        offset=0, width=12,
+        html="<p>Modelos con acabados premium, distribuciones inteligentes y opciones de crédito Infonavit, Fovissste o hipotecario bancario.</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

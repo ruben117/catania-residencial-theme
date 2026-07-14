@@ -1,0 +1,34 @@
+/* ============================================================
+   TITLE + SUBTITLE
+   Módulo genérico reutilizable: eyebrow + heading, tag configurable.
+   ============================================================ */
+
+.title-subtitle__eyebrow {
+  align-items: center;
+  color: var(--secondary-color) !important;
+  display: flex;
+  font-size: 12px !important;
+  font-weight: 300;
+  gap: 10px;
+  letter-spacing: var(--letter-spacing-base);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: var(--font-family-secondary);
+}
+
+.title-subtitle__eyebrow::before {
+  background-color: currentColor;
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  height: 1px;
+  width: 28px;
+}
+
+.title-subtitle__heading {
+  color: var(--heading-color);
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading-black);
+  line-height: 1.2;
+  margin: 0px 0px 20px;
+}

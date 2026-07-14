@@ -1,0 +1,100 @@
+/* ============================================================
+   FEATURE GRID
+   Card con grid de N columnas (máx. 3), icono + título + descripción
+   + viñetas opcionales. Fondo/borde/radio/gap configurables desde
+   la pestaña Style del builder (con fallback a estos defaults).
+   ============================================================ */
+
+.feature-grid {
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), 1fr);
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.feature-grid__item {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Divisores: solo cuando hay más de 1 item (grid real, no card suelta) */
+
+.feature-grid--divided .feature-grid__item {
+  border-bottom: 1px solid rgba(13, 39, 84, 0.08);
+  border-right: 1px solid rgba(13, 39, 84, 0.08);
+}
+
+.feature-grid--divided .feature-grid__item:nth-child(3n) {
+  border-right: none;
+}
+
+.feature-grid--divided .feature-grid__item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.feature-grid__icon {
+  display: block;
+  flex-shrink: 0;
+  height: 18px;
+  width: 18px;
+}
+
+.feature-grid__title {
+  font-family: var(--font-family-secondary);
+  color: var(--heading-color);
+  font-size: 14px;
+  font-weight: var(--font-weight-heading-black);
+  margin: 0 0 0.5rem;
+}
+
+.feature-grid__description {
+  color: var(--text-color);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.feature-grid__bullets {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.feature-grid__bullets li {
+  color: var(--text-color);
+  font-size: 12px;
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.feature-grid__bullets li::before {
+  color: var(--secondary-color);
+  content: "•";
+  left: 0;
+  position: absolute;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid--divided .feature-grid__item {
+    border-right: none;
+  }
+
+  .feature-grid--divided .feature-grid__item:nth-last-child(-n+3) {
+    border-bottom: 1px solid rgba(13, 39, 84, 0.08);
+  }
+
+  .feature-grid--divided .feature-grid__item:last-child {
+    border-bottom: none;
+  }
+}

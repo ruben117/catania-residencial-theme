@@ -1,0 +1,48 @@
+<!--
+  templateType: section
+  label: Amenidades Home - Top
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/respaldo-vintte.jpg
+  description: "Encabezado de la sección de amenidades: título+subtítulo a la izquierda, descripción a la derecha."
+-->
+{% dnd_section
+  class="amenidades-home-top",
+  background_color="#EEEAE1",
+  vertical_alignment="MIDDLE",
+  padding={
+    "default": { "top": 100, "bottom": 10 },
+    "mobile":  { "top": 60,  "bottom": 10 }
+  }
+%}
+  {% dnd_column
+    offset=0,
+    width=6
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/title-subtitle",
+        label="Encabezado",
+        offset=0, width=12,
+        eyebrow_text="Amenidades e infraestructura",
+        eyebrow_tag="p",
+        heading_text="Mucho más que un espacio: una verdadera vida en comunidad.",
+        heading_tag="h2"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+  {% dnd_column
+    offset=6,
+    width=6
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        label="Descripción",
+        offset=0, width=12,
+        html="<p>En Catania Residencial no solo adquieres metros cuadrados, inviertes en una infraestructura recreativa y deportiva única en la zona:</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

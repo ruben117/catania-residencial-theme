@@ -1,0 +1,12 @@
+<ul class="icon-text-list">
+  {% for item in module.items %}
+    <li class="icon-text-list__item">
+      {% if item.icon.src %}
+        <span class="icon-text-list__icon">
+          <img src="{{ item.icon.src }}" alt="{{ item.icon.alt | default('') | escape_attr }}" loading="lazy">
+        </span>
+      {% endif %}
+      <span class="icon-text-list__text">{{ item.text | escape_html }}</span>
+    </li>
+  {% endfor %}
+</ul>

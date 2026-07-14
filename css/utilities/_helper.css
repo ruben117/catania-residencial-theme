@@ -23,3 +23,25 @@
     width: 1px !important;
   }
 }
+
+/* Reveal-on-scroll: fade in de abajo hacia arriba, solo CSS (sin JS/módulo).
+   Se aplica con extra_classes="fade-in-up" en cualquier dnd_module. */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .fade-in-up {
+    animation: fade-in-up linear both;
+    animation-range: entry 0% entry 45%;
+    animation-timeline: view();
+  }
+}

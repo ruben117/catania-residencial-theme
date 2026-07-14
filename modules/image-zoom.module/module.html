@@ -1,0 +1,8 @@
+{% set uid = module.unique_id %}
+
+<div class="image-zoom" id="image-zoom-{{ uid }}">
+  {% if module.image.src %}
+    <img class="image-zoom__img" src="{{ module.image.src }}" alt="{{ module.image.alt | default('') | escape_attr }}" loading="lazy">
+    <div class="image-zoom__lens" style="background-image: url('{{ module.image.src }}');" aria-hidden="true"></div>
+  {% endif %}
+</div>

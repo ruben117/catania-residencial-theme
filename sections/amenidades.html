@@ -1,0 +1,113 @@
+<!--
+  templateType: section
+  label: Amenidades
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/amenidades.jpg
+  description: "Encabezado (título+subtítulo) + grid bento de 3 amenidades con texto overlay."
+-->
+{% dnd_section
+  class="amenidades",
+  background_color="#EEEAE1",
+  padding={
+    "default": { "top": 0, "bottom": 100 },
+    "mobile":  { "top": 0,  "bottom": 60 }
+  }
+%}
+  {% dnd_column offset=0, width=12 %}
+
+    {# Grid de amenidades #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/amenity-grid",
+        label="Grid de amenidades",
+        offset=0, width=12,
+        items=[
+          {
+            "image": { "src": get_asset_url("../images/amenidades-home-alberca.jpg"), "alt": "Privadas con Alberca y Palapas" },
+            "eyebrow_text": "Amenidad destacada",
+            "heading_text": "Privadas con Alberca y Palapas",
+            "description_text": "Espacios pensados para la convivencia familiar, con asador, camastros, baños y regaderas"
+          },
+          {
+            "image": { "src": get_asset_url("../images/amenidades-home-cancha-tenis.jpg"), "alt": "Cancha de Pádel Profesional" },
+            "eyebrow_text": "",
+            "heading_text": "Cancha de Pádel Profesional",
+            "description_text": "El único desarrollo del perímetro con cancha propia."
+          },
+          {
+            "image": { "src": get_asset_url("../images/amenidades-home-areas-verdes.jpg"), "alt": "Parque Holístico" },
+            "eyebrow_text": "",
+            "heading_text": "Parque Holístico",
+            "description_text": "Yoga, meditación y bienestar dentro de tu comunidad."
+          }
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Grid de amenidades (features) #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/feature-grid",
+        label="Grid de amenidades (features)",
+        offset=0, width=12,
+        items=[
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-sport-center.svg"), "alt": "" },
+            "title": "Sport Center y Cancha Fútbol 7",
+            "description": "Gimnasio equipado y cancha para organizar partidos sin salir del Residencial",
+            "bullets": []
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-parque-mascotas.svg"), "alt": "" },
+            "title": "Parque para Mascotas",
+            "description": "Área verde exclusiva para que tu mascota corra y socialice con seguridad.",
+            "bullets": []
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-control-acceso.svg"), "alt": "" },
+            "title": "Régimen Condominal Estricto",
+            "description": "Asociación Civil por fase: calles sin tráfico, áreas verdes cuidadas y cero ruidos.",
+            "bullets": []
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-ciclovia.svg"), "alt": "" },
+            "title": "Ciclovía",
+            "description": "Recorre el desarrollo de forma segura y activa en cualquier momento del día.",
+            "bullets": []
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-control-acceso.svg"), "alt": "" },
+            "title": "Control de Acceso",
+            "description": "Caseta de vigilancia con acceso controlado para la tranquilidad de tu familia.",
+            "bullets": []
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-amenidades-areas-verdes.svg"), "alt": "" },
+            "title": "Áreas Verdes",
+            "description": "Vegetación tropical integrada que crea un ambiente de paz y contacto con la naturaleza.",
+            "bullets": []
+          }
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/button",
+        extra_classes="cta_border-transparent",
+        button_text={{ context.button_text or "Get started" }},
+        styles={
+          "alignment": {
+            "alignment": {
+              "horizontal_align": "CENTER"
+            }
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    
+  {% end_dnd_column %}
+{% end_dnd_section %}

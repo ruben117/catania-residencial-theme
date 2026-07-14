@@ -1,0 +1,53 @@
+/* ============================================================
+   IMAGE ZOOM
+   Efecto lupa: al mover el mouse sobre la imagen, un lente circular
+   sigue el cursor mostrando esa zona ampliada. Requiere module.js.
+   ============================================================ */
+
+.image-zoom {
+  cursor: crosshair;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-zoom__img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.image-zoom__lens {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  display: none;
+  height: 160px;
+  pointer-events: none;
+  position: absolute;
+  width: 160px;
+  z-index: 2;
+}
+
+.image-zoom__lens.is-active {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .image-zoom__lens {
+    height: 110px;
+    width: 110px;
+  }
+}
+
+@media (hover: none) {
+  .image-zoom {
+    cursor: default;
+  }
+
+  .image-zoom__lens {
+    display: none !important;
+  }
+}

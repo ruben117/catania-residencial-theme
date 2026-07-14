@@ -1,0 +1,98 @@
+/* ============================================================
+   AMENITY GRID
+   Grid tipo bento: primer item grande (2 filas) + 2 items apilados
+   a la derecha. Texto overlay abajo-izquierda de cada imagen.
+   ============================================================ */
+
+.amenity-grid {
+  aspect-ratio: 1.95;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.amenity-grid__item {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.amenity-grid__item:first-child {
+  grid-row: span 2;
+}
+
+.amenity-grid__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.amenity-grid__overlay {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 55%);
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  position: absolute;
+  right: 0;
+}
+
+.amenity-grid__eyebrow {
+  color: rgb(255 255 255 / 50%);
+  font-size: 14px;
+  letter-spacing: var(--letter-spacing-base);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.amenity-grid__heading {
+  color: #ffffff;
+  font-weight: var(--font-weight-heading-black);
+  margin: 0 0 3px;
+}
+
+.amenity-grid__description {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 430px;
+}
+
+/* Item destacado (primero): texto más grande */
+
+.amenity-grid__item:first-child .amenity-grid__heading {
+  font-size: 20px;
+}
+
+.amenity-grid__item:first-child .amenity-grid__description {
+  font-size: 14px;
+}
+
+/* Items secundarios: texto más chico */
+
+.amenity-grid__item:not(:first-child) .amenity-grid__heading {
+  font-size: 15px;
+}
+
+.amenity-grid__item:not(:first-child) .amenity-grid__description {
+  font-size: 12px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .amenity-grid {
+    aspect-ratio: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .amenity-grid__item {
+    aspect-ratio: 4 / 3;
+  }
+
+  .amenity-grid__item:first-child {
+    grid-row: auto;
+  }
+}

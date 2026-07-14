@@ -1,0 +1,221 @@
+/* ============================================================
+   HERO HOME
+   Sección DnD (background_image nativo) + módulos default.
+   Targeting de instancias vía extra_classes en cada dnd_module
+   (dnd_row NO acepta class/extra_classes, solo dnd_module).
+   Se extiende detrás del header fijo/transparente.
+   ============================================================ */
+
+.hero-home {
+  background-color: var(--primary-color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero-home::before {
+  background: linear-gradient(90deg, rgba(7, 23, 48, 0.78) 0%, rgba(7, 23, 48, 0.55) 45%, rgba(7, 23, 48, 0.3) 100%),
+              linear-gradient(0deg, rgba(7, 23, 48, 0.55) 0%, rgba(7, 23, 48, 0) 40%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.hero-home .row-fluid {
+  max-width: 780px;
+  position: relative;
+}
+
+/* Eyebrow (clase escrita directo en el html del rich_text) */
+
+.hero-home .hero-home__eyebrow {
+  font-family: var(--font-family-secondary);
+  color: var(--secondary-color);
+  font-size: 13PX !important;
+  font-weight: 100;
+  letter-spacing: var(--letter-spacing-base);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Título */
+
+.hero-home h1 {
+  color: #ffffff;
+  font-size: clamp(30px,66px,70px);
+  font-weight: var(--font-weight-heading-black);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+
+/* Descripción */
+
+.hero-home p {
+  color: rgb(255 255 255 / 65%);
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+  max-width: 558px;
+  font-family: var(--font-family-secondary);
+  font-weight: 100;
+}
+
+/* Botones (@hubspot/button local, cada uno con su propio extra_classes) */
+
+/* La fila de botones vive en dos columnas span6 del grid de 12; sin esto
+   quedan estiradas al 50% del ancho y el segundo botón cae lejos del primero.
+   :has() la colapsa a "inline-block" real, pegada al contenido. */
+.hero-home .row-fluid:has(.hero-home__cta-primary) {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.hero-home .row-fluid:has(.hero-home__cta-primary) > div {
+  flex: 0 0 auto;
+  padding: 0;
+  width: auto;
+}
+
+.hero-home__cta-primary,
+.hero-home__cta-whatsapp {
+  margin-bottom: 2.5rem;
+}
+
+.hero-home__cta-primary .button-wrapper,
+.hero-home__cta-whatsapp .button-wrapper {
+  margin: 0;
+}
+ 
+.hero-home__cta-primary .button,
+.hero-home__cta-whatsapp .button {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: var(--font-size-button);
+    font-weight: 400;
+    padding: 9px 20px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+    font-family: var(--font-family-secondary);
+}
+
+/* Primario: Cotizar Mi Prototipo */
+
+.hero-home__cta-primary .button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.hero-home__cta-primary .button:hover,
+.hero-home__cta-primary .button:focus {
+  background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
+  transform: translateY(-1px);
+}
+
+/* Secundario: Hablar por WhatsApp (glass + ícono vía CSS) */
+
+.hero-home__cta-whatsapp .button {
+  background-color: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.hero-home__cta-whatsapp .button:hover,
+.hero-home__cta-whatsapp .button:focus {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.hero-home__cta-whatsapp .button::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  margin-right: 0.5rem;
+  width: 16px;
+}
+
+/* Badges (modules/icon-text-list, extra_classes="hero-home__badges") */
+
+.hero-home__badges {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+}
+
+.hero-home__badges .icon-text-list__text {
+  color: rgb(255 255 255 / 50%);
+  font-family: var(--font-family-secondary);
+  font-weight: 100;
+  font-size: 14px;
+}
+
+/* Indicador de scroll (decorativo, CSS puro) */
+
+.hero-home::after {
+  animation: hero-home-bounce 2s ease-in-out infinite;
+  bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  content: "↓";
+  font-size: 1.25rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+@keyframes hero-home-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .hero-home {
+    padding-bottom: 3rem !important;
+    padding-top: 7rem !important;
+  }
+
+  .hero-home::before {
+    background: linear-gradient(0deg, rgba(7, 23, 48, 0.85) 20%, rgba(7, 23, 48, 0.45) 100%);
+  }
+
+  .hero-home h1 {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .hero-home .row-fluid:has(.hero-home__cta-primary) {
+    flex-direction: column;
+  }
+
+  .hero-home .row-fluid:has(.hero-home__cta-primary) > div {
+    width: 100%;
+  }
+
+  .hero-home__cta-primary .button-wrapper,
+  .hero-home__cta-whatsapp .button-wrapper {
+    text-align: center;
+  }
+
+  .hero-home__cta-primary .button,
+  .hero-home__cta-whatsapp .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-home__badges {
+    gap: 0.75rem 1.25rem;
+  }
+
+  .hero-home::after {
+    display: none;
+  }
+}

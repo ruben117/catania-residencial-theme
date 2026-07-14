@@ -1,0 +1,11 @@
+[
+  {
+    "name": "image",
+    "label": "Imagen",
+    "type": "image",
+    "responsive": false,
+    "resizable": false,
+    "show_loading": false,
+    "default": { "src": "", "alt": "" }
+  }
+]

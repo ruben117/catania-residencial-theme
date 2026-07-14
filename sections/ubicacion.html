@@ -1,0 +1,133 @@
+<!--
+  templateType: section
+  label: Ubicación
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/ubicacion.jpg
+  description: "2 columnas: encabezado + 2 bloques de info (feature-grid sin card) + botón a la izquierda, mapa con zoom-in al hover a la derecha."
+-->
+{% dnd_section
+  class="ubicacion",
+  background_color="#F9F6F0",
+  vertical_alignment="MIDDLE",
+  padding={
+    "default": { "top": 100, "bottom": 100 },
+    "mobile":  { "top": 60,  "bottom": 60 }
+  }
+%}
+  {% dnd_column offset=0, width=12 %}
+
+    {% dnd_row %}
+
+      {# Columna izquierda #}
+      {% dnd_column offset=0, width=6 %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado",
+            offset=0, width=12,
+            eyebrow_text="Ubicación estratégica",
+            eyebrow_tag="p",
+            heading_text="Ubicación estratégica en el epicentro del boom del Polígono Sur.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción",
+            offset=0, width=12,
+            html="<p>Conéctate de inmediato con los mejores servicios de Cancún desde un entorno lejos del tráfico, cerca de todo:</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/feature-grid",
+            label="Todo cerca",
+            offset=0, width=12,
+            items=[
+              {
+                "icon": { "src": get_asset_url("../images/icon-ubicacion-pin.svg"), "alt": "" },
+                "title": "¡Todo cerca!",
+                "description": "Localizado cerca de Walmart Polígono Sur y Chedraui Selecto; a pasos del Santuario María Desatadora de Nudos, un imponente punto de referencia y paz local.",
+                "bullets": []
+              }
+            ],
+            styles={
+              "background": { "color": { "color": "#F9F6F0", "opacity": 0 } },
+              "corner": { "radius": 0 },
+              "spacing": { "gap": 0 }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/feature-grid",
+            label="Conectividad inigualable",
+            offset=0, width=12,
+            items=[
+              {
+                "icon": { "src": get_asset_url("../images/icon-ubicacion-reloj.svg"), "alt": "" },
+                "title": "Conectividad inigualable",
+                "description": "",
+                "bullets": [
+                  { "text": "A solo 20 minutos del Aeropuerto Internacional de Cancún" },
+                  { "text": "A 25 minutos de las playas públicas de la Riviera Maya" },
+                  { "text": "A 30 minutos de la Zona Hotelera" }
+                ]
+              }
+            ],
+            styles={
+              "background": { "color": { "color": "#F9F6F0", "opacity": 0 } },
+              "corner": { "radius": 0 },
+              "spacing": { "gap": 0 }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/button",
+            label="CTA mapa",
+            extra_classes="ubicacion__cta",
+            offset=0, width=12,
+            button_text="Ver ubicación en el mapa",
+            link={
+              "url": { "href": "#", "type": "EXTERNAL" },
+              "open_in_new_tab": true,
+              "no_follow": false
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+      {% end_dnd_column %}
+
+      {# Columna derecha — mapa con zoom-in al hover #}
+      {% dnd_column offset=6, width=6 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/image-zoom",
+            label="Mapa de ubicación",
+            offset=0, width=12,
+            image={
+              "src": get_asset_url("../images/mapa-ubicacion.jpg"),
+              "alt": "Mapa de ubicación Catania Residencial"
+            },
+              "size_type": "auto"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+
+    {% end_dnd_row %}
+
+  {% end_dnd_column %}
+{% end_dnd_section %}

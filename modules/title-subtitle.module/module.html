@@ -1,0 +1,11 @@
+{% set eyebrow_tag = module.eyebrow_tag | default('p') %}
+{% set heading_tag = module.heading_tag | default('h2') %}
+
+<div class="title-subtitle">
+  {% if module.eyebrow_text %}
+    <{{ eyebrow_tag }} class="title-subtitle__eyebrow">{{ module.eyebrow_text | escape_html }}</{{ eyebrow_tag }}>
+  {% endif %}
+  {% if module.heading_text %}
+    <{{ heading_tag }} class="title-subtitle__heading">{{ module.heading_text | escape_html }}</{{ heading_tag }}>
+  {% endif %}
+</div>

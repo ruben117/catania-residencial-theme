@@ -1,0 +1,51 @@
+/* ============================================================
+   STAT ROW
+   Datos repetibles distribuidos en columnas iguales (--cols).
+   ============================================================ */
+
+.stat-row {
+  border: 1px solid rgba(13, 39, 84, 0.1);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+}
+
+.stat-row__item {
+  padding: 1.75rem 2rem;
+}
+
+.stat-row__item:not(:first-child) {
+  border-left: 1px solid rgba(13, 39, 84, 0.1);
+}
+
+.stat-row__value {
+  color: var(--primary-color);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: var(--font-weight-heading-black);
+  line-height: 1.1;
+}
+
+.stat-row__suffix {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: var(--font-weight-base);
+}
+
+.stat-row__label {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  margin-top: 0.35rem;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-row__item:not(:first-child) {
+    border-left: none;
+    border-top: 1px solid rgba(13, 39, 84, 0.12);
+  }
+}

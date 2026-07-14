@@ -1,0 +1,37 @@
+[
+  {
+    "name": "items",
+    "label": "Datos",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "default": 2,
+      "sorting_label_field": "items.caption"
+    },
+    "children": [
+      {
+        "name": "value",
+        "label": "Valor (ej. 22, 65,000+)",
+        "type": "text",
+        "default": "0"
+      },
+      {
+        "name": "value_suffix",
+        "label": "Sufijo junto al valor (opcional, ej. años)",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "caption",
+        "label": "Descripción",
+        "type": "text",
+        "default": "Descripción del dato"
+      }
+    ],
+    "default": [
+      { "value": "22", "value_suffix": "años", "caption": "de experiencia" },
+      { "value": "65,000+", "value_suffix": "", "caption": "familias beneficiadas" }
+    ]
+  }
+]

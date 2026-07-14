@@ -1,0 +1,70 @@
+/* ============================================================
+   UBICACIÓN
+   2 columnas: encabezado + 2 bloques info + botón | mapa con zoom.
+   ============================================================ */
+
+.ubicacion p {
+  color: var(--text-color);
+}
+
+.ubicacion .feature-grid {
+  margin-top: 1.75rem;
+}
+
+.ubicacion .feature-grid__title {
+  font-size: 1rem;
+}
+
+/* Botón outline con ícono de pin vía CSS */
+
+.ubicacion__cta .button {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid rgba(13, 39, 84, 0.2);
+  border-radius: 999px;
+  color: var(--heading-color);
+  display: inline-flex;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ubicacion__cta .button:hover,
+.ubicacion__cta .button:focus {
+  background-color: rgba(13, 39, 84, 0.05);
+  border-color: rgba(13, 39, 84, 0.35);
+}
+
+.ubicacion__cta .button::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D2754' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+/* Mapa */
+
+.ubicacion .image-zoom {
+  height: 100%;
+  min-height: 420px;
+}
+
+.ubicacion .image-zoom__img {
+  height: 100%;
+  min-height: 420px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .ubicacion .image-zoom,
+  .ubicacion .image-zoom__img {
+    min-height: 260px;
+  }
+}

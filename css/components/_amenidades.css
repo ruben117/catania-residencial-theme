@@ -1,0 +1,28 @@
+/* ============================================================
+   AMENIDADES HOME — TOP
+   Encabezado: título+subtítulo (izquierda) + descripción (derecha).
+   ============================================================ */
+
+.amenidades-home-top p {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+  .amenidades-home-top p {
+    max-width: none;
+  }
+}
+
+.amenidades__heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.amenidades__heading .title-subtitle__eyebrow {
+  justify-content: center;
+}
+.cta_border-transparent{
+  
+}

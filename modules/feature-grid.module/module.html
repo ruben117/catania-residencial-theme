@@ -1,0 +1,45 @@
+{% require_css %}
+  <style>
+    {% scope_css %}
+      .feature-grid {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.border.border.css }}
+        {% if module.styles.corner.radius >= 0 %}
+          border-radius: {{ module.styles.corner.radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.spacing.gap >= 0 %}
+          gap: {{ module.styles.spacing.gap ~ "px" }};
+        {% endif %}
+      }
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% set cols = 3 if module.items|length >= 3 else module.items|length %}
+
+<div class="feature-grid{% if module.items|length > 1 %} feature-grid--divided{% endif %}" style="--cols: {{ cols }};">
+  {% for item in module.items %}
+    <div class="feature-grid__item">
+      {% if item.icon.src %}
+        <img class="feature-grid__icon" src="{{ item.icon.src }}" alt="" loading="lazy">
+      {% endif %}
+      <div class="feature-grid__content">
+        {% if item.title %}
+          <h3 class="feature-grid__title">{{ item.title | escape_html }}</h3>
+        {% endif %}
+        {% if item.description %}
+          <p class="feature-grid__description">{{ item.description | escape_html }}</p>
+        {% endif %}
+        {% if item.bullets|length %}
+          <ul class="feature-grid__bullets">
+            {% for bullet in item.bullets %}
+              <li>{{ bullet.text | escape_html }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

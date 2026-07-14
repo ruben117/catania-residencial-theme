@@ -1,0 +1,131 @@
+[
+  {
+    "name": "items",
+    "label": "Items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 6,
+      "sorting_label_field": "items.title"
+    },
+    "children": [
+      {
+        "name": "icon",
+        "label": "Icono (SVG)",
+        "type": "image",
+        "responsive": false,
+        "resizable": false,
+        "show_loading": false,
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "name": "title",
+        "label": "Título",
+        "type": "text",
+        "default": "Título"
+      },
+      {
+        "name": "description",
+        "label": "Descripción",
+        "type": "text",
+        "default": "Descripción breve."
+      },
+      {
+        "name": "bullets",
+        "label": "Viñetas (opcional)",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 8,
+          "default": 0
+        },
+        "children": [
+          {
+            "name": "text",
+            "label": "Texto",
+            "type": "text",
+            "default": "Viñeta"
+          }
+        ]
+      }
+    ],
+    "default": [
+      { "icon": { "src": "", "alt": "" }, "title": "Título 1", "description": "Descripción breve.", "bullets": [] },
+      { "icon": { "src": "", "alt": "" }, "title": "Título 2", "description": "Descripción breve.", "bullets": [] },
+      { "icon": { "src": "", "alt": "" }, "title": "Título 3", "description": "Descripción breve.", "bullets": [] },
+      { "icon": { "src": "", "alt": "" }, "title": "Título 4", "description": "Descripción breve.", "bullets": [] },
+      { "icon": { "src": "", "alt": "" }, "title": "Título 5", "description": "Descripción breve.", "bullets": [] },
+      { "icon": { "src": "", "alt": "" }, "title": "Título 6", "description": "Descripción breve.", "bullets": [] }
+    ]
+  },
+  {
+    "label": "Estilos",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Fondo",
+        "name": "background",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "default": { "color": "#FFFFFF", "opacity": 100 }
+          }
+        ]
+      },
+      {
+        "label": "Borde",
+        "name": "border",
+        "type": "group",
+        "children": [
+          {
+            "label": "Borde",
+            "name": "border",
+            "type": "border"
+          }
+        ]
+      },
+      {
+        "label": "Esquinas",
+        "name": "corner",
+        "type": "group",
+        "children": [
+          {
+            "label": "Radio",
+            "name": "radius",
+            "type": "number",
+            "display": "slider",
+            "min": 0,
+            "max": 40,
+            "step": 1,
+            "default": 16,
+            "suffix": "px"
+          }
+        ]
+      },
+      {
+        "label": "Espaciado",
+        "name": "spacing",
+        "type": "group",
+        "children": [
+          {
+            "label": "Gap entre items",
+            "name": "gap",
+            "type": "number",
+            "display": "slider",
+            "min": 0,
+            "max": 60,
+            "step": 1,
+            "default": 0,
+            "suffix": "px"
+          }
+        ]
+      }
+    ]
+  }
+]

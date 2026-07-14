@@ -1,0 +1,112 @@
+<!--
+  templateType: section
+  label: Hero Home
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-home.jpg
+  description: "Hero de página de inicio: imagen de fondo, eyebrow, título, descripción, botones de Cotizar/WhatsApp y badges de confianza. Construido con módulos default de HubSpot."
+-->
+{% dnd_section
+  class="hero-home",
+  background_image={
+    "backgroundSize": "cover",
+    "backgroundPosition": "MIDDLE_CENTER",
+    "imageUrl": get_asset_url("../images/bgk-hero-home.jpg")
+  },
+  padding={
+    "default": { "top": 150, "bottom": 150 },
+    "mobile":  { "top": 80,  "bottom": 100 }
+  }
+%}
+  {% dnd_column offset=0, width=12 %}
+
+    {# Fila 1 — eyebrow #}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        offset=0, width=12,
+        html="<p class=\"hero-home__eyebrow\">— Polígono Sur · Cancún · Vinte</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Fila 2 — título #}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        offset=0, width=12,
+        html="<h1>Tu oasis de<br>tranquilidad en el corazón del Polígono<br>Sur de Cancún.</h1>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Fila 3 — descripción #}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        offset=0, width=12,
+        html="<p>Bienvenido a Catania Residencial. Una comunidad planeada con régimen condominal estricto, rodeada de naturaleza y diseñada para quienes buscan una calidad de vida superior, con el respaldo legal y financiero del grupo inmobiliario más sólido de México.</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Fila 4 — botones (extra_classes por instancia, NO class en dnd_row) #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/button",
+        label="CTA principal",
+        extra_classes="hero-home__cta-primary",
+        offset=0, width=6,
+        button_text="Cotizar Mi Prototipo",
+        link={
+          "url": { "href": "#cotizador", "type": "EXTERNAL" },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      %}
+      {% end_dnd_module %}
+      {% dnd_module
+        path="../modules/button",
+        label="CTA WhatsApp",
+        extra_classes="hero-home__cta-whatsapp",
+        offset=6, width=6,
+        button_text="Hablar por WhatsApp",
+        link={
+          "url": { "href": "https://wa.me/525550107360?text=Hola%2C%20me%20interesa%20Catania%20Residencial", "type": "EXTERNAL" },
+          "open_in_new_tab": true,
+          "no_follow": false
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {# Fila 5 — badges de confianza #}
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/icon-text-list",
+        label="Badges de confianza",
+        extra_classes="hero-home__badges",
+        offset=0, width=12,
+        items=[
+          {
+            "icon": { "src": get_asset_url("../images/icon-hero-respaldo.svg"), "alt": "Respaldo Vinte" },
+            "text": "Respaldo Vinte"
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-hero-check.svg"), "alt": "Infonavit y Fovissste" },
+            "text": "Infonavit y Fovissste"
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-hero-pin.svg"), "alt": "Polígono Sur, Cancún" },
+            "text": "Polígono Sur, Cancún"
+          },
+          {
+            "icon": { "src": get_asset_url("../images/icon-hero-check.svg"), "alt": "Asesoría sin costo" },
+            "text": "Asesoría sin costo"
+          }
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+  {% end_dnd_column %}
+{% end_dnd_section %}

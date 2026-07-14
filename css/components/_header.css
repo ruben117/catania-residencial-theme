@@ -1,6 +1,6 @@
 /* ============================================================
    SITE HEADER
-   Estructura: topbar (rojo) + header__main (transparente/blur)
+   Estructura: header__main (transparente/blur)
    Comportamiento: fixed, sticky al hacer scroll agrega .is-scrolled
    ============================================================ */
 
@@ -37,51 +37,6 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-}
-
-/* ── Topbar ──────────────────────────────────────────────── */
-
-.topbar {
-  background-color: #000000;
-}
-
-.topbar__container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  max-width: 1280px;
-  padding-bottom: 0.2rem;
-  padding-top: 0.2rem;
-}
-
-/* Módulo rich_text dentro del topbar */
-.topbar p,
-.topbar .hs_cos_wrapper p 
-.topbar .hs_cos_wrapper a {
-  align-items: center;
-  color: #ffffff;
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  gap: 0.4rem;
-  letter-spacing: 0.01em;
-  margin: 0;
-}
-
-.topbar svg {
-  flex-shrink: 0;
-}
-
-.topbar a {
-  color: #ffffff;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.topbar a:hover {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
 }
 
 /* ── Header main ─────────────────────────────────────────── */

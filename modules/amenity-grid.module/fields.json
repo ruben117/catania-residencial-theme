@@ -1,0 +1,62 @@
+[
+  {
+    "name": "items",
+    "label": "Amenidades",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 3,
+      "default": 3,
+      "sorting_label_field": "items.heading_text"
+    },
+    "children": [
+      {
+        "name": "image",
+        "label": "Imagen",
+        "type": "image",
+        "responsive": false,
+        "resizable": false,
+        "show_loading": false,
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "name": "eyebrow_text",
+        "label": "Eyebrow (opcional, solo la primera lo usa en el diseño)",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "heading_text",
+        "label": "Título",
+        "type": "text",
+        "default": "Título de la amenidad"
+      },
+      {
+        "name": "description_text",
+        "label": "Descripción",
+        "type": "text",
+        "default": "Descripción breve."
+      }
+    ],
+    "default": [
+      {
+        "image": { "src": "", "alt": "Privadas con Alberca y Palapas" },
+        "eyebrow_text": "Amenidad destacada",
+        "heading_text": "Privadas con Alberca y Palapas",
+        "description_text": "Espacios pensados para la convivencia familiar, con asador, camastros, baños y regaderas"
+      },
+      {
+        "image": { "src": "", "alt": "Cancha de Pádel Profesional" },
+        "eyebrow_text": "",
+        "heading_text": "Cancha de Pádel Profesional",
+        "description_text": "El único desarrollo del perímetro con cancha propia."
+      },
+      {
+        "image": { "src": "", "alt": "Parque Holístico" },
+        "eyebrow_text": "",
+        "heading_text": "Parque Holístico",
+        "description_text": "Yoga, meditación y bienestar dentro de tu comunidad."
+      }
+    ]
+  }
+]

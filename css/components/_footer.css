@@ -4,8 +4,8 @@
    ============================================================ */
 
 .footer {
-  background-color: #F5F3EF !important;
-  border-top: 1px solid #e2ddd7;
+  background-color: #071730 !important;
+  border-top: 1px solid #040b15;
 }
 
 .footer__inner {
@@ -65,10 +65,11 @@
 
 .footer__address p,
 .footer__address .hs_cos_wrapper p {
+  font-family: var(--font-family-secondary);
   font-size: 11.5px;
   font-weight: 400;
   line-height: 1.65;
-  color: var(--secondary-color);
+  color: rgba(255, 255, 255, 0.45) ;
   margin: 0 0 10px;
 }
 
@@ -81,7 +82,8 @@
 
 .footer__address a,
 .footer__address .hs_cos_wrapper a {
-  color: var(--secondary-color);
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family-secondary);
   text-decoration: none;
 }
 
@@ -106,7 +108,8 @@
 .footer__col--quejas .hs_cos_wrapper h4 {
   font-size: 14px;
   font-weight: 700;
-  color: var(--secondary-color);
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family-secondary);
   margin: 0 0 14px;
   letter-spacing: 0.01em;
 }
@@ -118,7 +121,8 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.4;
-  color: var(--secondary-color);;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family-secondary);;
   margin: 0 0 10px;
 }
 
@@ -164,7 +168,8 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-family-secondary);
   border-radius: 50%;
   color: #ffffff;
   transition: opacity 0.2s;
