@@ -1,0 +1,38 @@
+[
+  {
+    "name": "items",
+    "label": "Pasos",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 10,
+      "default": 5,
+      "sorting_label_field": "items.title"
+    },
+    "children": [
+      {
+        "name": "number",
+        "label": "Número (ej. 01)",
+        "type": "text",
+        "default": "01"
+      },
+      {
+        "name": "title",
+        "label": "Título",
+        "type": "text",
+        "default": "Título del paso"
+      },
+      {
+        "name": "description",
+        "label": "Descripción",
+        "type": "text",
+        "default": "Descripción breve del paso."
+      }
+    ],
+    "default": [
+      { "number": "01", "title": "Título del paso 1", "description": "Descripción breve del paso." },
+      { "number": "02", "title": "Título del paso 2", "description": "Descripción breve del paso." },
+      { "number": "03", "title": "Título del paso 3", "description": "Descripción breve del paso." }
+    ]
+  }
+]

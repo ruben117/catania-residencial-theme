@@ -1,0 +1,166 @@
+/* ============================================================
+   CONTACTO
+   Fondo navy, 2 columnas: encabezado/imagen | card blanca con
+   formulario de HubSpot. Card blanca vía :has() (mismo patrón que
+   _credito-hipotecario.css): dnd_column no acepta class/extra_classes,
+   así que se detecta la columna por el módulo marcador
+   .contacto__form-heading, excluyendo la columna exterior (width=12)
+   con :not(:has(.dnd-column)).
+   ============================================================ */
+
+.contacto p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contacto__text p {
+  margin: 0 0 2rem;
+  max-width: 480px;
+}
+
+.contacto__image img {
+  border-radius: 16px;
+  display: block;
+  width: 100%;
+}
+
+/* Card blanca con el formulario */
+
+.contacto .dnd-column:has(.contacto__form-heading):not(:has(.dnd-column)) {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(7, 23, 48, 0.25);
+  padding: 3rem !important;
+}
+
+.contacto .dnd-column:has(.contacto__form-heading):not(:has(.dnd-column)) p {
+  color: var(--text-color);
+}
+
+.contacto__form-heading h3 {
+  color: var(--heading-color);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-heading-black);
+  margin: 0 0 1.5rem;
+}
+
+/* Formulario HubSpot (@hubspot/form) */
+
+.contacto__form .hs-form-field {
+  margin-bottom: 1.25rem;
+}
+
+.contacto__form label {
+  color: var(--heading-color);
+  display: block;
+  font-family: var(--font-family-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contacto__form .hs-form-required {
+  color: var(--accent-color);
+}
+
+.contacto__form input,
+.contacto__form select,
+.contacto__form textarea {
+  background-color: #F5F3EF;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--heading-color);
+  font-family: var(--font-family-secondary);
+  font-size: 0.9375rem;
+  padding: 0.85rem 1rem;
+  width: 100%;
+}
+
+.contacto__form input:focus,
+.contacto__form select:focus,
+.contacto__form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.contacto__form fieldset {
+  max-width: 100% !important;
+}
+
+.contacto__form fieldset.form-columns-2 {
+  display: flex;
+  gap: 1rem;
+}
+
+.contacto__form fieldset.form-columns-2 .hs-form-field {
+  flex: 1 1 0;
+  width: auto !important;
+}
+
+.contacto__form .legal-consent-container {
+  color: var(--text-color);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.contacto__form .legal-consent-container a {
+  color: var(--primary-color);
+}
+
+.contacto__form .hs-form-booleancheckbox-display {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.contacto__form .hs-form-booleancheckbox-display input {
+  margin-top: 0.2rem;
+  width: auto;
+}
+
+.contacto__form .hs-button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-family-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.contacto__form .hs-button:hover {
+  background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
+}
+
+.contacto__form .hs-error-msgs {
+  color: var(--accent-color);
+  font-size: 0.75rem;
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+
+.contacto__disclaimer p {
+  color: rgba(13, 39, 84, 0.4) !important;
+  font-size: 0.75rem;
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .contacto .dnd-column:has(.contacto__form-heading):not(:has(.dnd-column)) {
+    margin-top: 2.5rem;
+    padding: 2rem !important;
+  }
+
+  .contacto__form fieldset.form-columns-2 {
+    flex-direction: column;
+  }
+}

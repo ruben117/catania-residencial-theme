@@ -1,0 +1,17 @@
+<div class="step-list">
+  {% for item in module.items %}
+    <div class="step-list__item">
+      {% if item.number %}
+        <span class="step-list__number">{{ item.number | escape_html }}</span>
+      {% endif %}
+      <div class="step-list__content">
+        {% if item.title %}
+          <h3 class="step-list__title">{{ item.title | escape_html }}</h3>
+        {% endif %}
+        {% if item.description %}
+          <p class="step-list__description">{{ item.description | escape_html }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

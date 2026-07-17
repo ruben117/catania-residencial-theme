@@ -565,7 +565,7 @@
             "max": 100,
             "step": 1,
             "suffix": "px",
-            "default": 6
+            "default": 100
           }
         ]
       },

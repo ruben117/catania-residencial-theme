@@ -7,7 +7,7 @@ Note: _macros.css needs to be imported into each stylesheet where macros are use
 :root {
   --primary-color: #0D2754;
   --secondary-color: #B8A050;
-  --accent-color: #CA002F;
+  --accent-color: #C8102E;
   --primary-color-black: #071730;
   --text-color: #72706A;
   --heading-color: #161616;
@@ -62,6 +62,9 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 {% include './components/_amenidades.css' %}
 {% include './components/_ubicacion.css' %}
 {% include './components/_modelos-disponibles.css' %}
+{% include './components/_credito-hipotecario.css' %}
+{% include './components/_preguntas-frecuentes.css' %}
+{% include './components/_contacto.css' %}
 {% include './components/_default-modules.css' %}
 
 /* Utilities

@@ -66,8 +66,13 @@
 
 /* La fila de botones vive en dos columnas span6 del grid de 12; sin esto
    quedan estiradas al 50% del ancho y el segundo botón cae lejos del primero.
-   :has() la colapsa a "inline-block" real, pegada al contenido. */
-.hero-home .row-fluid:has(.hero-home__cta-primary) {
+   :has() la colapsa a "inline-block" real, pegada al contenido.
+   ":has(> div > .marca)" (no ":has(.marca)" a secas) porque HubSpot anida
+   row-fluid dentro de row-fluid en cada nivel de dnd_row/dnd_column: un
+   :has() sin el combinador ">" hace match en TODOS los row-fluid ancestro
+   hasta el que envuelve toda la página (el marcador sigue siendo su
+   descendiente), no solo en el row-fluid inmediato de los botones. */
+.hero-home .row-fluid:has(> div > .hero-home__cta-primary) {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -75,7 +80,7 @@
   justify-content: flex-start;
 }
 
-.hero-home .row-fluid:has(.hero-home__cta-primary) > div {
+.hero-home .row-fluid:has(> div > .hero-home__cta-primary) > div {
   flex: 0 0 auto;
   padding: 0;
   width: auto;
@@ -116,6 +121,7 @@
 .hero-home__cta-primary .button:focus {
   background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
   transform: translateY(-1px);
+  border-radius: 999px !important;
 }
 
 /* Secundario: Hablar por WhatsApp (glass + ícono vía CSS) */
@@ -131,6 +137,7 @@
 .hero-home__cta-whatsapp .button:hover,
 .hero-home__cta-whatsapp .button:focus {
   background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 999px !important;
 }
 
 .hero-home__cta-whatsapp .button::before {
@@ -192,11 +199,11 @@
     font-size: clamp(2rem, 8vw, 2.75rem);
   }
 
-  .hero-home .row-fluid:has(.hero-home__cta-primary) {
+  .hero-home .row-fluid:has(> div > .hero-home__cta-primary) {
     flex-direction: column;
   }
 
-  .hero-home .row-fluid:has(.hero-home__cta-primary) > div {
+  .hero-home .row-fluid:has(> div > .hero-home__cta-primary) > div {
     width: 100%;
   }
 

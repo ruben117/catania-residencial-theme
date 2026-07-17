@@ -11,6 +11,9 @@
 }
 
 .stat-row__item {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
   padding: 1.75rem 2rem;
 }
 
@@ -18,11 +21,16 @@
   border-left: 1px solid rgba(13, 39, 84, 0.1);
 }
 
+.stat-row__stat {
+  flex-shrink: 0;
+}
+
 .stat-row__value {
   color: var(--primary-color);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: var(--font-weight-heading-black);
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .stat-row__suffix {
@@ -35,6 +43,15 @@
   color: var(--text-color);
   font-size: 0.875rem;
   margin-top: 0.35rem;
+  white-space: nowrap;
+}
+
+.stat-row__description {
+  color: var(--text-color);
+  font-family: var(--font-family-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* ── Responsive: mobile (≤767px) ─────────────────────────── */
@@ -47,5 +64,9 @@
   .stat-row__item:not(:first-child) {
     border-left: none;
     border-top: 1px solid rgba(13, 39, 84, 0.12);
+  }
+
+  .stat-row__item {
+    flex-wrap: wrap;
   }
 }

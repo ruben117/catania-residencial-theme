@@ -24,14 +24,20 @@
       },
       {
         "name": "caption",
-        "label": "Descripción",
+        "label": "Descripción corta (bajo el valor)",
         "type": "text",
         "default": "Descripción del dato"
+      },
+      {
+        "name": "description",
+        "label": "Texto descriptivo (a la derecha)",
+        "type": "text",
+        "default": ""
       }
     ],
     "default": [
-      { "value": "22", "value_suffix": "años", "caption": "de experiencia" },
-      { "value": "65,000+", "value_suffix": "", "caption": "familias beneficiadas" }
+      { "value": "22", "value_suffix": "años", "caption": "de experiencia", "description": "" },
+      { "value": "65,000+", "value_suffix": "", "caption": "familias beneficiadas", "description": "" }
     ]
   }
 ]

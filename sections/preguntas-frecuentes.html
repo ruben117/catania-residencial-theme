@@ -1,0 +1,86 @@
+<!--
+  templateType: section
+  label: Preguntas Frecuentes
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/preguntas-frecuentes.jpg
+  description: "Encabezado centrado + acordeón de preguntas frecuentes (modules/faq) + texto y botón de contacto."
+-->
+{% dnd_section
+  class="preguntas-frecuentes",
+  background_color="#F9F6F0",
+  vertical_alignment="MIDDLE",
+  padding={
+    "default": { "top": 100, "bottom": 100 },
+    "mobile":  { "top": 60,  "bottom": 60 }
+  }
+%}
+  {% dnd_column offset=0, width=3 %}
+  {% end_dnd_column %}
+  {% dnd_column offset=3, width=6 %}
+
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/title-subtitle",
+        label="Encabezado",
+        extra_classes="preguntas-frecuentes__heading",
+        offset=0, width=12,
+        eyebrow_text="Resolvemos tus dudas",
+        eyebrow_tag="p",
+        heading_text="Preguntas frecuentes sobre Catania Residencial",
+        heading_tag="h2"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/faq",
+        label="FAQ – Acordeón",
+        extra_classes="preguntas-frecuentes__faq",
+        offset=0, width=12,
+        items=[
+          { "faq_pregunta": "¿Dónde está ubicado Catania Residencial?", "faq_respuesta": "<p>Catania Residencial se ubica en el Polígono Sur de Cancún, a 20 minutos del Aeropuerto Internacional de Cancún y a 25 minutos de las playas públicas de la Riviera Maya.</p>" },
+          { "faq_pregunta": "¿Cuánto cuestan las casas en Catania Residencial?", "faq_respuesta": "<p>Contamos con prototipos desde $2,182,000 MXN hasta $3,851,000 MXN, con distintas distribuciones y superficies de construcción.</p>" },
+          { "faq_pregunta": "¿Se puede comprar una casa en Catania con crédito Infonavit o Fovissste?", "faq_respuesta": "<p>Sí, aceptamos crédito Infonavit, Fovissste y crédito bancario hipotecario. Nuestro equipo certificado te asesora sin costo en todo el proceso, desde la precalificación hasta la firma de escrituras.</p>" },
+          { "faq_pregunta": "¿Qué amenidades tiene Catania Residencial?", "faq_respuesta": "<p>Catania cuenta con áreas verdes, ciclovía, control de acceso, parque para mascotas y sport center, entre otras amenidades pensadas para tu familia.</p>" },
+          { "faq_pregunta": "¿Catania Residencial es una buena inversión?", "faq_respuesta": "<p>Sí. Con base en nuestras muestras del prototipo Vizzini, registramos un crecimiento promedio anual del 20% en plusvalía, convirtiendo tu propiedad en un activo ideal para habitar, vacacional o rentar.</p>" },
+          { "faq_pregunta": "¿Quién es la desarrolladora detrás de Catania Residencial?", "faq_respuesta": "<p>Catania Residencial es desarrollado por Vinte, una de las inmobiliarias más sólidas de México con más de 22 años de experiencia y más de 65,000 familias beneficiadas.</p>" },
+          { "faq_pregunta": "¿Catania Residencial tiene cancha de pádel?", "faq_respuesta": "<p>Sí, el sport center de Catania Residencial incluye cancha de pádel, además de otras instalaciones deportivas para toda la familia.</p>" },
+          { "faq_pregunta": "¿Aceptan créditos especiales como IMSS, ISFAM, Banjercito?", "faq_respuesta": "<p>Sí, además de Infonavit y Fovissste, contamos con opciones de crédito especiales como IMSS, ISFAM y Banjercito. Consulta con nuestro equipo de asesores para más detalles.</p>" }
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        label="Texto ¿Tienes más preguntas?",
+        extra_classes="preguntas-frecuentes__cta-text",
+        offset=0, width=12,
+        html="<p>¿Tienes más preguntas?</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+    {% dnd_row %}
+      {% dnd_module
+        path="../modules/button",
+        label="CTA hablar con asesor",
+        extra_classes="preguntas-frecuentes__cta-button",
+        offset=0, width=12,
+        button_text="Hablar con un asesor",
+        link={
+          "url": { "href": "https://wa.me/525550107360?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Catania%20Residencial", "type": "EXTERNAL" },
+          "open_in_new_tab": true,
+          "no_follow": false
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
+  {% end_dnd_column %}
+  {% dnd_column offset=9, width=3 %}
+  {% end_dnd_column %}
+  
+{% end_dnd_section %}

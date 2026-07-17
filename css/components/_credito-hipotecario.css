@@ -1,0 +1,104 @@
+/* ============================================================
+   CRÉDITO HIPOTECARIO
+   2 columnas: listado de pasos + CTA | panel de inversión (fondo navy).
+   El panel navy se logra con :has() porque dnd_column no acepta
+   class/extra_classes — se detecta por el módulo marcador
+   .credito-hipotecario__info-heading que vive dentro de esa columna.
+   :not(:has(.dnd-column)) es necesario para no capturar también la
+   columna exterior (width=12) que envuelve ambas columnas de la fila.
+   ============================================================ */
+
+.credito-hipotecario p {
+  color: var(--text-color);
+}
+
+/* Botón CTA principal (izquierda) — pill accent, mismo patrón que hero-home */
+
+.credito-hipotecario__cta .button-wrapper {
+  margin: 1rem 0 0;
+}
+
+.credito-hipotecario__cta .button {
+  background-color: var(--accent-color);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+  padding: 0.9rem 1.75rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.credito-hipotecario__cta .button:hover,
+.credito-hipotecario__cta .button:focus {
+  background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
+  transform: translateY(-1px);
+}
+
+/* Panel derecho — fondo navy.
+   :not(:has(.dnd-column)) excluye a la columna exterior (width=12): esa
+   también "tiene" el marcador como descendiente (está más arriba en el
+   árbol), pero además contiene columnas anidadas — la columna interna
+   de la derecha (width=6) es la única sin columnas anidadas dentro. */
+
+.credito-hipotecario .dnd-column:has(.credito-hipotecario__info-heading):not(:has(.dnd-column)) {
+  background-color: #0D2754;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 3rem 2.5rem !important;
+}
+
+.credito-hipotecario .dnd-column:has(.credito-hipotecario__info-heading):not(:has(.dnd-column)) p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.credito-hipotecario__infografia {
+  margin: 1.5rem 0;
+}
+
+.credito-hipotecario__infografia img {
+  display: block;
+  width: 100%;
+}
+
+.credito-hipotecario__disclaimer p {
+  color: rgba(255, 255, 255, 0.35) !important;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+}
+
+.credito-hipotecario__cta-invest .button-wrapper {
+  margin: 0;
+}
+
+.credito-hipotecario__cta-invest .button {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  display: block;
+  font-family: var(--font-family-secondary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.credito-hipotecario__cta-invest .button:hover,
+.credito-hipotecario__cta-invest .button:focus {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .credito-hipotecario .dnd-column:has(.credito-hipotecario__info-heading):not(:has(.dnd-column)) {
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem !important;
+  }
+}

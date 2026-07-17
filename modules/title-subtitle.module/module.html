@@ -1,6 +1,23 @@
 {% set eyebrow_tag = module.eyebrow_tag | default('p') %}
 {% set heading_tag = module.heading_tag | default('h2') %}
 
+{% require_css %}
+  <style>
+    {% scope_css %}
+      .title-subtitle__eyebrow {
+        {% if module.styles.eyebrow_color.opacity > 0 %}
+          color: rgba({{ module.styles.eyebrow_color.color|convert_rgb }}, {{ module.styles.eyebrow_color.opacity / 100 }}) !important;
+        {% endif %}
+      }
+      .title-subtitle__heading {
+        {% if module.styles.heading_color.opacity > 0 %}
+          color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading_color.opacity / 100 }}) !important;
+        {% endif %}
+      }
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
 <div class="title-subtitle">
   {% if module.eyebrow_text %}
     <{{ eyebrow_tag }} class="title-subtitle__eyebrow">{{ module.eyebrow_text | escape_html }}</{{ eyebrow_tag }}>

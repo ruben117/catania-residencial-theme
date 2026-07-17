@@ -42,5 +42,25 @@
       ["h6", "h6"]
     ],
     "default": "h2"
+  },
+  {
+    "label": "Estilos",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Color del subtítulo (eyebrow)",
+        "name": "eyebrow_color",
+        "type": "color",
+        "default": { "color": "#B8A050", "opacity": 0 }
+      },
+      {
+        "label": "Color del título",
+        "name": "heading_color",
+        "type": "color",
+        "default": { "color": "#161616", "opacity": 0 }
+      }
+    ]
   }
 ]

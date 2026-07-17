@@ -1,11 +1,16 @@
 <div class="stat-row" style="--cols: {{ module.items|length }};">
   {% for item in module.items %}
     <div class="stat-row__item">
-      <div class="stat-row__value">
-        {{ item.value | escape_html }}{% if item.value_suffix %}<span class="stat-row__suffix"> {{ item.value_suffix | escape_html }}</span>{% endif %}
+      <div class="stat-row__stat">
+        <div class="stat-row__value">
+          {{ item.value | escape_html }}{% if item.value_suffix %}<span class="stat-row__suffix"> {{ item.value_suffix | escape_html }}</span>{% endif %}
+        </div>
+        {% if item.caption %}
+          <div class="stat-row__label">{{ item.caption | escape_html }}</div>
+        {% endif %}
       </div>
-      {% if item.caption %}
-        <div class="stat-row__label">{{ item.caption | escape_html }}</div>
+      {% if item.description %}
+        <p class="stat-row__description">{{ item.description | escape_html }}</p>
       {% endif %}
     </div>
   {% endfor %}

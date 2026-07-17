@@ -4,7 +4,13 @@
    + fila de estadísticas.
    ============================================================ */
 
-.respaldo-vinte .row-fluid:has(.respaldo-vinte__image) {
+/* ":has(> div > .marca)", no ":has(.marca)" a secas: la imagen vive
+   anidada dentro de dos row-fluid (la fila de 2 columnas "Fila 1" Y la
+   fila interna de la columna que envuelve solo la imagen). Sin el
+   combinador ">" ambos hacen match — el de "Fila 1" también se volvería
+   position:relative, rompiendo el contexto de posicionamiento del badge
+   si esa fila alguna vez necesita overflow/transform propios. */
+.respaldo-vinte .row-fluid:has(> div > .respaldo-vinte__image) {
   position: relative;
 }
 
