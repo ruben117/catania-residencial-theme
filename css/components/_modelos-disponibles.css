@@ -6,6 +6,12 @@
 .modelos-disponibles__grid {
   margin-top: 3rem;
 }
+.modelos-disponibles__legal p {
+  font-size: var(--font-size-disclaimer);
+  color: var(--legal-color);
+  margin-top: 1rem;
+  text-align: center;
+}
 
 @media (max-width: 767px) {
   .modelos-disponibles__grid {

@@ -65,15 +65,13 @@
 .contacto__form input,
 .contacto__form select,
 .contacto__form textarea {
-  background-color: #F5F3EF;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: var(--heading-color);
+  background-color: #F9F6F0 !important;
+  border: 1px solid rgb(22 22 22 / 9%) !important;
+  border-radius: 13px !important;
+  color: var(--heading-color) !important;
   font-family: var(--font-family-secondary);
-  font-size: 0.9375rem;
-  padding: 0.85rem 1rem;
-  width: 100%;
+  font-size: 14px !important;
+  padding: 10px 10px !important;
 }
 
 .contacto__form input:focus,

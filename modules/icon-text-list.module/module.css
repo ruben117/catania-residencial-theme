@@ -35,3 +35,12 @@
   font-size: 0.8125rem;
   font-weight: 500;
 }
+
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .icon-text-list {
+    justify-content: center;
+  }
+}

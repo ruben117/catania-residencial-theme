@@ -35,6 +35,7 @@
 .credito-hipotecario__cta .button:focus {
   background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
   transform: translateY(-1px);
+  border-radius: 999px;
 }
 
 /* Panel derecho — fondo navy.
@@ -92,6 +93,7 @@
 .credito-hipotecario__cta-invest .button:hover,
 .credito-hipotecario__cta-invest .button:focus {
   background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
 }
 
 /* ── Responsive: mobile (≤767px) ─────────────────────────── */

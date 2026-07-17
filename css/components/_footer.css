@@ -81,18 +81,24 @@
 .footer__address strong { font-weight: 700; }
 
 .footer__address a,
-.footer__address .hs_cos_wrapper a {
+.footer__address .hs_cos_wrapper a,
+.footer__col--ventas a,
+.footer__col--ventas .hs_cos_wrapper a,
+.footer__col--quejas a,
+.footer__col--quejas .hs_cos_wrapper a  {
   color: rgba(255, 255, 255, 0.45);
   font-family: var(--font-family-secondary);
   text-decoration: none;
 }
 
 .footer__address a:hover,
-.footer__address .hs_cos_wrapper a:hover {
-  color: var(--primary-color);
-  text-decoration: underline;
+.footer__address .hs_cos_wrapper a:hover,
+.footer__col--ventas a:hover,
+.footer__col--quejas a:hover {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-weight: 600;
 }
-
 /* ── Columnas 2 y 3: Contenido ───────────────────────────── */
 
 .footer__col--ventas,
@@ -108,7 +114,7 @@
 .footer__col--quejas .hs_cos_wrapper h4 {
   font-size: 14px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 1);
   font-family: var(--font-family-secondary);
   margin: 0 0 14px;
   letter-spacing: 0.01em;
@@ -133,18 +139,6 @@
   margin-bottom: 0;
 }
 
-.footer__col--ventas a,
-.footer__col--ventas .hs_cos_wrapper a,
-.footer__col--quejas a,
-.footer__col--quejas .hs_cos_wrapper a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.footer__col--ventas a:hover,
-.footer__col--quejas a:hover {
-  text-decoration: underline;
-}
 
 /* ── Redes sociales (@hubspot/social_follow) ─────────────── */
 

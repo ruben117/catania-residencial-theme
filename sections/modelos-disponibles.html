@@ -138,5 +138,16 @@
       {% end_dnd_module %}
     {% end_dnd_row %}
 
+    {# Fila 3 - Legal#}
+    {% dnd_row %}
+      {% dnd_module
+        path="@hubspot/rich_text",
+        label="Legal - modelos disponibles",
+        extra_classes="modelos-disponibles__legal",
+        html="<p>*Precios de contado sujetos a disponibilidad y cambios sin previo aviso. Consultar condiciones vigentes con un asesor.</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+
   {% end_dnd_column %}
 {% end_dnd_section %}

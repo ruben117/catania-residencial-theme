@@ -212,6 +212,12 @@
     text-align: center;
   }
 
+  .hero-home__cta-primary{
+    margin-bottom: 0rem;
+  }
+  .hero-home__cta-whatsapp {
+    margin-bottom: 40px;
+  }
   .hero-home__cta-primary .button,
   .hero-home__cta-whatsapp .button {
     justify-content: center;

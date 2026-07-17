@@ -1,3 +1,7 @@
+.form-title, .submitted-message, form {
+    background-color: #ffffff !important;
+    border: 1px #ffffff !important;
+}
 /* Fields */
 
 .hs-form-field {
