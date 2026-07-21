@@ -1,0 +1,417 @@
+<!--
+  templateType: section
+  label: Detalle de Modelo
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/detalle-modelo.jpg
+  description: "2 columnas (8/4): contenido del modelo (encabezados + distribución de plantas) | sidebar sticky con precio, datos y otros prototipos."
+-->
+{% dnd_section
+  class="detalle-modelo",
+  background_color="#F9F6F0",
+  padding={
+    "default": { "top": 80, "bottom": 100 },
+    "mobile":  { "top": 50,  "bottom": 60 }
+  }
+%}
+  {% dnd_column offset=0, width=12 %}
+
+    {% dnd_row %}
+
+      {# Columna izquierda — contenido del modelo #}
+      {% dnd_column offset=0, width=8 %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Eyebrow — Catania Residencial",
+            extra_classes="detalle-modelo__eyebrow-block",
+            offset=0, width=12,
+            eyebrow_text="Catania Residencial",
+            eyebrow_tag="p",
+            heading_text="",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción del desarrollo",
+            extra_classes="detalle-modelo__intro",
+            offset=0, width=12,
+            html="<p>Catania Residencial es un desarrollo de Vinte en el Polígono Sur de Cancún, una de las zonas con mayor inyección de inversión inmobiliaria de la ciudad. Es una comunidad cerrada con amenidades deportivas y recreativas, pensada tanto para vivir como para invertir con respaldo institucional.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Distribución",
+            offset=0, width=12,
+            eyebrow_text="Distribución Monreale",
+            eyebrow_tag="p",
+            heading_text="Dos plantas diseñadas para la vida familiar premium.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/floor-plan",
+            label="Distribución por plantas",
+            offset=0, width=12,
+            plantas=[
+              {
+                "planta_titulo": "Planta Baja",
+                "items": [
+                  { "texto": "Sala" },
+                  { "texto": "Comedor" },
+                  { "texto": "Cocina" },
+                  { "texto": "1/2 baño" },
+                  { "texto": "Jardín trasero" }
+                ]
+              },
+              {
+                "planta_titulo": "Planta Alta",
+                "items": [
+                  { "texto": "Recámara principal con Walk-In Closet" },
+                  { "texto": "Baño independiente en recámara principal" },
+                  { "texto": "2 recámaras secundarias" },
+                  { "texto": "Baño completo compartido" },
+                  { "texto": "Sala de TV familiar" }
+                ]
+              }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Galería",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Galería de interiores",
+            eyebrow_tag="p",
+            heading_text="Conoce cada espacio de tu nuevo hogar.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción de la galería",
+            extra_classes="detalle-modelo__gallery-caption",
+            offset=0, width=12,
+            html="<p>Las imágenes son de carácter ilustrativo. El mobiliario y decoración no se incluyen con la vivienda.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/gallery",
+            label="Galería de interiores",
+            offset=0, width=12,
+            items=[
+              { "image": { "src": get_asset_url("../images/modelo-monreale-bano.jpg"), "alt": "Baño" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-recamara.jpg"), "alt": "Recámara" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-cocina.jpg"), "alt": "Cocina" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-comedor.jpg"), "alt": "Comedor" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-sala-comedor.jpg"), "alt": "Sala" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-patio.jpg"), "alt": "Patio" } },
+              { "image": { "src": get_asset_url("../images/modelo-monreale-alberca.jpg"), "alt": "Alberca" } }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Amenidades",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Amenidades destacadas",
+            eyebrow_tag="p",
+            heading_text="Infraestructura recreativa única en la zona.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/feature-grid",
+            label="Amenidades destacadas",
+            extra_classes="detalle-modelo__amenidades-grid",
+            offset=0, width=12,
+            items=[
+              {
+                "icon": { "src": get_asset_url("../images/icon-amenidades-sport-center.svg"), "alt": "" },
+                "title": "Cancha de Pádel Profesional",
+                "description": "Único desarrollo del perímetro inmediato con esta amenidad.",
+                "bullets": []
+              },
+              {
+                "icon": { "src": get_asset_url("../images/icon-amenidades-home.svg"), "alt": "" },
+                "title": "Sport Center",
+                "description": "Gimnasio equipado para mantener tu rutina sin salir de casa.",
+                "bullets": []
+              },
+              {
+                "icon": { "src": get_asset_url("../images/icon-amenidades-reginem-condominio.svg"), "alt": "" },
+                "title": "Régimen Condominal Estricto",
+                "description": "Calles sin tráfico interno y áreas verdes cuidadas, clave para preservar el valor del activo.",
+                "bullets": []
+              }
+            ],
+            styles={
+              "background": { "color": { "color": "#FFFFFF", "opacity": 100 } },
+              "corner": { "radius": 16 },
+              "spacing": { "gap": 0 },
+              "layout": { "columns": "1" }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Respaldo Vinte",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Respaldo institucional",
+            eyebrow_tag="p",
+            heading_text="Respaldo Vinte",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción — Respaldo Vinte",
+            extra_classes="detalle-modelo__intro",
+            offset=0, width=12,
+            html="<p>22 años en el mercado, más de 65 mil familias viviendo en sus comunidades y el estatus de empresa pública líder en vivienda media de México — un respaldo institucional poco común en el sector inmobiliario de Cancún.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/stat-row",
+            label="Datos — Respaldo Vinte",
+            extra_classes="detalle-modelo__stats",
+            offset=0, width=12,
+            items=[
+              { "value": "22", "value_suffix": "años", "caption": "de experiencia", "description": "Creando comunidades para el futuro de las familias." },
+              { "value": "65,000+", "value_suffix": "", "caption": "familias beneficiadas", "description": "" }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Plusvalía e Inversión",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Plusvalía e inversión",
+            eyebrow_tag="p",
+            heading_text="Tu patrimonio protegido por una plusvalía del 20% anualizado.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción — Plusvalía e Inversión",
+            extra_classes="detalle-modelo__intro",
+            offset=0, width=12,
+            html="<p>Con base en muestras del prototipo Vizzini, Catania ha registrado un crecimiento promedio del 20% anual en plusvalía (2018-2025), proyectando casi duplicar su valor hacia 2030. El Monreale, como modelo premium, es una opción atractiva tanto para habitar como para destinar a renta vacacional.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/image",
+            label="Infografía de plusvalía",
+            extra_classes="detalle-modelo__infografia  fade-in-up",
+            offset=0, width=12,
+            img={
+              "src": get_asset_url("../images/infogradia-patrimonio-plusvalia.png"),
+              "alt": "Proyección de plusvalía Catania Residencial",
+              "loading": "lazy",
+              "size_type": "auto"
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Financiamiento",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Financiamiento",
+            eyebrow_tag="p",
+            heading_text="Opciones de crédito disponibles",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción y grid de créditos",
+            extra_classes="detalle-modelo__financing",
+            offset=0, width=12,
+            html="<p>Elegible para crédito bancario hipotecario, Infonavit y Fovissste según el perfil del comprador.</p><div class=\"detalle-modelo__credit-grid\"><div class=\"detalle-modelo__credit-item\"><span class=\"detalle-modelo__credit-check\">✓</span>Crédito bancario hipotecario</div><div class=\"detalle-modelo__credit-item\"><span class=\"detalle-modelo__credit-check\">✓</span>Infonavit</div><div class=\"detalle-modelo__credit-item\"><span class=\"detalle-modelo__credit-check\">✓</span>Fovissste</div></div>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — Ubicación",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Ubicación",
+            eyebrow_tag="p",
+            heading_text="En el centro del boom del Polígono Sur.",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción — Ubicación",
+            offset=0, width=12,
+            html="<p>A 20 minutos del Aeropuerto Internacional, 25 minutos de playas de la Riviera Maya y 30 de la Zona Hotelera.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/location-image",
+            label="Imagen de ubicación + distancias",
+            offset=0, width=12,
+            image={
+              "src": get_asset_url("../images/bgk-modelo-ubicacion.png"),
+              "alt": "Ubicación Catania Residencial"
+            },
+            items=[
+              { "tiempo": "20 min", "lugar": "Aeropuerto Internacional" },
+              { "tiempo": "25 min", "lugar": "Playas Riviera Maya" },
+              { "tiempo": "30 min", "lugar": "Zona Hotelera" }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/cta-banner",
+            label="CTA — Descargar brochure",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            cta_title="Descarga el brochure completo de Monreale",
+            cta_subtitle="Planos, acabados, precios y condiciones de crédito.",
+            background_color={ "color": "#EEEAE1", "opacity": 100 },
+            button_text="Descargar brochure",
+            button_link={ "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/title-subtitle",
+            label="Encabezado — FAQ",
+            extra_classes="detalle-modelo__section-break",
+            offset=0, width=12,
+            eyebrow_text="Preguntas frecuentes",
+            eyebrow_tag="p",
+            heading_text="Preguntas frecuentes sobre el Monreale",
+            heading_tag="h2"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/faq",
+            label="FAQ — Acordeón",
+            extra_classes="detalle-modelo__faq",
+            offset=0, width=12,
+            items=[
+              { "faq_pregunta": "¿Cuánto cuesta la casa Monreale en Catania Residencial?", "faq_respuesta": "<p>El precio de contado desde $3,851,000 MXN, nuestro prototipo más exclusivo con 149.18 m² de construcción.</p>" },
+              { "faq_pregunta": "¿La recámara principal tiene Walk-In Closet?", "faq_respuesta": "<p>Sí, la recámara principal en planta alta incluye Walk-In Closet y baño independiente.</p>" },
+              { "faq_pregunta": "¿El Monreale es una buena opción de inversión?", "faq_respuesta": "<p>Sí. Con base en nuestras muestras del prototipo Vizzini, registramos un crecimiento promedio anual del 20% en plusvalía, ideal para habitar o destinar a renta vacacional.</p>" },
+              { "faq_pregunta": "¿Qué incluye la planta alta del Monreale?", "faq_respuesta": "<p>La planta alta incluye recámara principal con Walk-In Closet y baño independiente, 2 recámaras secundarias, baño completo compartido y sala de TV familiar.</p>" }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+      {% end_dnd_column %}
+
+      {# Columna derecha — sidebar sticky #}
+      {% dnd_column offset=8, width=4 %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/modelo-datos",
+            label="Datos del modelo (sidebar)",
+            offset=0, width=12,
+            price_label="Precio desde",
+            price="$3,851,000",
+            price_caption="MXN · Precio de contado",
+            specs=[
+              { "spec_icon": { "src": get_asset_url("../images/icon-amenidades-home.svg"), "alt": "" }, "spec_label": "Recámaras", "spec_value": "3 (+ Walk-In Closet)" },
+              { "spec_icon": { "src": get_asset_url("../images/icon-amenidades-home.svg"), "alt": "" }, "spec_label": "Baños", "spec_value": "2 ½" },
+              { "spec_icon": { "src": get_asset_url("../images/icon-amenidades-estacionamientos.svg"), "alt": "" }, "spec_label": "Estacionamientos", "spec_value": "2" },
+              { "spec_icon": { "src": get_asset_url("../images/icon-amenidades-cosntruccion-plusvalia.svg"), "alt": "" }, "spec_label": "Construcción", "spec_value": "149.18 m²" },
+              { "spec_icon": { "src": get_asset_url("../images/icon-amenidades-tipo-2.svg"), "alt": "" }, "spec_label": "Tipo", "spec_value": "Casa" }
+            ],
+            button_text_primary="Descargar Brochure Completo",
+            button_link_primary={ "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true },
+            button_text_secondary="Hablar por WhatsApp",
+            button_link_secondary={ "url": { "href": "https://wa.me/525550107360?text=Hola%2C%20me%20interesa%20el%20modelo%20Monreale%20de%20Catania%20Residencial", "type": "EXTERNAL" }, "open_in_new_tab": true },
+            disclaimer_text="El precio corresponde a precio de contado. El precio de la vivienda puede variar dependiendo del prototipo, tipo de financiamiento y gastos notariales. El mobiliario y decoración no se incluyen con la vivienda.",
+            others_title="Otros prototipos",
+            other_models=[
+              { "model_name": "Vizzini", "model_type": "Departamento", "model_price": "Desde $2,182,000", "model_link": { "url": { "href": "#", "type": "EXTERNAL" } } },
+              { "model_name": "Málaga", "model_type": "Casa 2 Plantas", "model_price": "Desde $2,987,000", "model_link": { "url": { "href": "#", "type": "EXTERNAL" } } },
+              { "model_name": "Scordia", "model_type": "Jardín Amplio", "model_price": "Desde $3,320,000", "model_link": { "url": { "href": "#", "type": "EXTERNAL" } } }
+            ]
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+      {% end_dnd_column %}
+
+    {% end_dnd_row %}
+
+  {% end_dnd_column %}
+{% end_dnd_section %}

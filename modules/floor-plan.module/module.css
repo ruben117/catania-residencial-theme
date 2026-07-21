@@ -1,0 +1,67 @@
+/* ============================================================
+   FLOOR PLAN
+   Grid de N columnas (máx. 2), card por planta con header navy
+   + listado de elementos.
+   ============================================================ */
+
+.floor-plan {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(var(--cols, 2), 1fr);
+  margin-top: 1.5rem;
+}
+
+.floor-plan__card {
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 39, 84, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.floor-plan__header {
+  background-color: #0D2754;
+  color: #ffffff;
+  font-family: var(--font-family-secondary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-base);
+  padding: 0.85rem 1.25rem;
+  text-transform: uppercase;
+}
+
+.floor-plan__list {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem;
+}
+
+.floor-plan__list li {
+  color: var(--text-color);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.floor-plan__list li:not(:last-child) {
+  margin-bottom: 0.6rem;
+}
+
+.floor-plan__list li::before {
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  content: "";
+  height: 6px;
+  left: 0;
+  position: absolute;
+  top: 0.5rem;
+  width: 6px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .floor-plan {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,129 @@
+[
+  {
+    "name": "price_label",
+    "label": "Etiqueta sobre el precio",
+    "type": "text",
+    "default": "Precio desde"
+  },
+  {
+    "name": "price",
+    "label": "Precio",
+    "type": "text",
+    "default": "$0 MXN"
+  },
+  {
+    "name": "price_caption",
+    "label": "Texto bajo el precio",
+    "type": "text",
+    "default": "MXN · Precio de contado"
+  },
+  {
+    "name": "specs",
+    "label": "Datos del modelo (icono + etiqueta + valor)",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 5
+    },
+    "children": [
+      {
+        "name": "spec_icon",
+        "label": "Icono (SVG)",
+        "type": "image",
+        "responsive": false,
+        "resizable": false,
+        "show_loading": false,
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "name": "spec_label",
+        "label": "Etiqueta (ej. Recámaras)",
+        "type": "text",
+        "default": "Etiqueta"
+      },
+      {
+        "name": "spec_value",
+        "label": "Valor (ej. 3, 149.18 m²)",
+        "type": "text",
+        "default": "0"
+      }
+    ]
+  },
+  {
+    "name": "button_text_primary",
+    "label": "Texto botón primario",
+    "type": "text",
+    "default": "Descargar Brochure Completo"
+  },
+  {
+    "name": "button_link_primary",
+    "label": "Enlace botón primario",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+    "default": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
+  },
+  {
+    "name": "button_text_secondary",
+    "label": "Texto botón secundario",
+    "type": "text",
+    "default": "Hablar por WhatsApp"
+  },
+  {
+    "name": "button_link_secondary",
+    "label": "Enlace botón secundario",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+    "default": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true }
+  },
+  {
+    "name": "disclaimer_text",
+    "label": "Texto legal",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "name": "others_title",
+    "label": "Título del listado de otros prototipos",
+    "type": "text",
+    "default": "Otros prototipos"
+  },
+  {
+    "name": "other_models",
+    "label": "Otros prototipos",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "default": 0,
+      "sorting_label_field": "other_models.model_name"
+    },
+    "children": [
+      {
+        "name": "model_name",
+        "label": "Nombre",
+        "type": "text",
+        "default": "Nombre"
+      },
+      {
+        "name": "model_type",
+        "label": "Tipo de vivienda",
+        "type": "text",
+        "default": "Casa"
+      },
+      {
+        "name": "model_price",
+        "label": "Precio (ej. Desde $2,182,000)",
+        "type": "text",
+        "default": "Desde $0"
+      },
+      {
+        "name": "model_link",
+        "label": "Enlace a la página del modelo",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": { "url": { "href": "#", "type": "EXTERNAL" } }
+      }
+    ]
+  }
+]

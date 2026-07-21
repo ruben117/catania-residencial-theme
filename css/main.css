@@ -58,6 +58,8 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 {% include './components/_header.css' %}
 {% include './components/_footer.css' %}
 {% include './components/_hero-home.css' %}
+{% include './components/_hero-modelo.css' %}
+{% include './components/_detalle-modelo.css' %}
 {% include './components/_respaldo-vinte.css' %}
 {% include './components/_amenidades.css' %}
 {% include './components/_ubicacion.css' %}

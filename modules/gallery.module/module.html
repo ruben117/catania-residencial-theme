@@ -1,0 +1,21 @@
+{% set uid = module.unique_id %}
+
+<div class="gallery" data-gallery id="gallery-{{ uid }}">
+
+  {% for item in module.items %}
+    {% if item.image.src %}
+      <button type="button" class="gallery__item" data-gallery-trigger data-index="{{ loop.index0 }}">
+        <img class="gallery__img" src="{{ item.image.src }}" alt="{{ item.image.alt | default('') | escape_attr }}" loading="lazy">
+      </button>
+    {% endif %}
+  {% endfor %}
+
+  <dialog class="gallery__lightbox" data-gallery-lightbox aria-label="Galería de imágenes">
+    <button type="button" class="gallery__lightbox-close" data-gallery-close aria-label="Cerrar">✕</button>
+    <button type="button" class="gallery__lightbox-prev" data-gallery-prev aria-label="Imagen anterior">‹</button>
+    <img class="gallery__lightbox-img" data-gallery-image src="" alt="">
+    <button type="button" class="gallery__lightbox-next" data-gallery-next aria-label="Imagen siguiente">›</button>
+    <p class="gallery__lightbox-counter" data-gallery-counter></p>
+  </dialog>
+
+</div>

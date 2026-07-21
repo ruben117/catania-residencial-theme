@@ -1,0 +1,152 @@
+/* ============================================================
+   DETALLE DE MODELO
+   2 columnas (8/4): contenido del modelo | sidebar sticky
+   (modules/modelo-datos).
+   ============================================================ */
+
+/* Sidebar sticky — por qué va en el row-fluid-wrapper y no en la columna:
+   position:sticky necesita que su elemento se quede MÁS BAJO que su
+   contenedor directo, para tener margen donde "moverse" al scrollear.
+   La columna derecha (dnd_column offset=8 width=4) se estira con
+   align-items:stretch en el .row-fluid exterior para igualar la altura
+   de la columna izquierda (mucho más larga) — pero si el sticky se pone
+   en ESA misma columna ya estirada, columna y contenedor miden exactamente
+   lo mismo y no queda margen: se ve "pegado" desde el inicio sin rango
+   de scroll real. La solución es aplicar sticky un nivel más adentro, en
+   el .row-fluid-wrapper (hijo directo de la columna) que SÍ mantiene su
+   alto natural (el del módulo) mientras su padre —la columna, ahora alta—
+   es quien le da el margen para moverse.
+   [data-x="8"][data-w="4"] identifica la columna exacta (HubSpot pone
+   esos atributos en cada dnd_column según su offset/width). */
+
+.detalle-modelo .row-fluid {
+  align-items: stretch;
+}
+
+.detalle-modelo [data-x="8"][data-w="4"].dnd-column > .row-fluid-wrapper {
+  position: sticky;
+  top: 100px;
+}
+
+/* Mobile (≤767px, breakpoint en el que HubSpot apila las columnas):
+   sin sticky (no aplica apiladas) y la columna del sidebar se muestra
+   PRIMERO, antes que todo el contenido largo del modelo. */
+
+@media (max-width: 767px) {
+  .detalle-modelo [data-x="8"][data-w="4"].dnd-column > .row-fluid-wrapper {
+    position: static;
+  }
+
+  .detalle-modelo [data-x="8"][data-w="4"].dnd-column {
+    order: -1;
+  }
+
+  .detalle-modelo [data-x="0"][data-w="8"].dnd-column {
+    order: 1;
+  }
+}
+
+.detalle-modelo__eyebrow-block {
+  margin-bottom: 1.5rem;
+}
+
+.detalle-modelo__intro {
+  margin-bottom: 3rem;
+}
+
+.detalle-modelo__intro p {
+  color: var(--text-color);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.detalle-modelo__section-break {
+  margin-top: 3.5rem;
+}
+
+.detalle-modelo__gallery-caption p {
+  color: var(--text-color);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+.detalle-modelo__faq .faq{
+  width: 100%;
+  margin: 0px auto;
+}
+
+/* Amenidades — feature-grid a 1 columna (Style > Layout), solo agrega
+   el borde de la card (el fondo blanco/radio ya vienen del Style tab) */
+
+.detalle-modelo__amenidades-grid .feature-grid {
+  border: 1px solid rgba(13, 39, 84, 0.08);
+  margin-top: 1.5rem;
+}
+
+/* Respaldo Vinte — stat-row como 2 cards separadas (gap) en vez de
+   la card continua con divisor interno que usa la home. Se sobreescribe
+   aquí porque es específico de esta sección; la instancia de la home
+   (respaldo-vinte.html) no lleva esta clase y no se ve afectada. */
+
+.detalle-modelo__stats .stat-row {
+  background: none;
+  border: none;
+  border-radius: 0;
+  gap: 1rem;
+}
+
+.detalle-modelo__stats .stat-row__item {
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 39, 84, 0.08);
+  border-radius: 16px;
+}
+
+/* Plusvalía e inversión — infografía */
+
+.detalle-modelo__infografia {
+  margin: 1.5rem 0;
+}
+
+.detalle-modelo__infografia img {
+  border-radius: 16px;
+  display: block;
+  width: 100%;
+}
+
+/* Financiamiento — grid de créditos escrito directo en el HTML del
+   rich_text (sin módulo aparte, es contenido estático que no se repite) */
+
+.detalle-modelo__credit-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1.5rem;
+}
+
+.detalle-modelo__credit-item {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 39, 84, 0.08);
+  border-radius: 12px;
+  color: var(--heading-color);
+  display: flex;
+  font-family: var(--font-family-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+}
+
+.detalle-modelo__credit-check {
+  color: var(--secondary-color);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .detalle-modelo__credit-grid {
+    grid-template-columns: 1fr;
+  }
+}

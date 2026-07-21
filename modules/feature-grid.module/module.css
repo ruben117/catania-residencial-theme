@@ -1,8 +1,10 @@
 /* ============================================================
    FEATURE GRID
    Card con grid de N columnas (máx. 3), icono + título + descripción
-   + viñetas opcionales. Fondo/borde/radio/gap configurables desde
-   la pestaña Style del builder (con fallback a estos defaults).
+   + viñetas opcionales. Fondo/borde/radio/gap/columnas configurables
+   desde la pestaña Style del builder (con fallback a estos defaults).
+   "Columnas" en Style > Layout fuerza 1/2/3 columnas en vez del cálculo
+   automático (útil para listas verticales tipo sidebar, ej. 1 columna).
    ============================================================ */
 
 .feature-grid {
@@ -21,18 +23,39 @@
   padding: 20px;
 }
 
-/* Divisores: solo cuando hay más de 1 item (grid real, no card suelta) */
+/* Divisores: solo cuando hay más de 1 item (grid real, no card suelta).
+   Dependen de [data-cols] (calculado en module.html) porque nth-child no
+   puede leer el valor de --cols en CSS puro. */
 
 .feature-grid--divided .feature-grid__item {
   border-bottom: 1px solid rgba(13, 39, 84, 0.08);
+}
+
+.feature-grid--divided[data-cols="1"] .feature-grid__item:last-child {
+  border-bottom: none;
+}
+
+.feature-grid--divided[data-cols="2"] .feature-grid__item {
   border-right: 1px solid rgba(13, 39, 84, 0.08);
 }
 
-.feature-grid--divided .feature-grid__item:nth-child(3n) {
+.feature-grid--divided[data-cols="2"] .feature-grid__item:nth-child(2n) {
   border-right: none;
 }
 
-.feature-grid--divided .feature-grid__item:nth-last-child(-n+3) {
+.feature-grid--divided[data-cols="2"] .feature-grid__item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.feature-grid--divided[data-cols="3"] .feature-grid__item {
+  border-right: 1px solid rgba(13, 39, 84, 0.08);
+}
+
+.feature-grid--divided[data-cols="3"] .feature-grid__item:nth-child(3n) {
+  border-right: none;
+}
+
+.feature-grid--divided[data-cols="3"] .feature-grid__item:nth-last-child(-n+3) {
   border-bottom: none;
 }
 
@@ -87,14 +110,11 @@
   }
 
   .feature-grid--divided .feature-grid__item {
-    border-right: none;
-  }
-
-  .feature-grid--divided .feature-grid__item:nth-last-child(-n+3) {
-    border-bottom: 1px solid rgba(13, 39, 84, 0.08);
+    border-bottom: 1px solid rgba(13, 39, 84, 0.08) !important;
+    border-right: none !important;
   }
 
   .feature-grid--divided .feature-grid__item:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
   }
 }

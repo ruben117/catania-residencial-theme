@@ -1,0 +1,79 @@
+/* ============================================================
+   CTA BANNER
+   Card horizontal: título + subtítulo a la izquierda, botón a la
+   derecha. Color de fondo editable (default #F3F0EA).
+   ============================================================ */
+
+.cta-banner {
+  align-items: center;
+  border-radius: 16px;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding: 1.75rem 2rem;
+}
+
+.cta-banner__title {
+  color: var(--heading-color);
+  font-family: var(--font-family-base) !important;
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-heading-black);
+  margin: 0 0 0.35rem;
+}
+
+.cta-banner__subtitle {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.cta-banner__button {
+  align-items: center;
+  background-color: var(--accent-color);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: var(--font-family-secondary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cta-banner__button:hover,
+.cta-banner__button:focus {
+  font-family: var(--font-family-secondary);
+  border-radius: 999px;
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
+  color: #fff;
+  text-decoration: none;
+}
+
+.cta-banner__button::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 15px;
+  margin-right: 0.5rem;
+  width: 15px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .cta-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cta-banner__button {
+    justify-content: center;
+  }
+}

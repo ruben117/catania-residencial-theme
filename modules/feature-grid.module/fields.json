@@ -125,6 +125,26 @@
             "suffix": "px"
           }
         ]
+      },
+      {
+        "label": "Layout",
+        "name": "layout",
+        "type": "group",
+        "children": [
+          {
+            "label": "Columnas",
+            "name": "columns",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              ["auto", "Automático (según cantidad de items, máx. 3)"],
+              ["1", "1 columna"],
+              ["2", "2 columnas"],
+              ["3", "3 columnas"]
+            ],
+            "default": "auto"
+          }
+        ]
       }
     ]
   }

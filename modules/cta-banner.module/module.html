@@ -1,0 +1,20 @@
+{% set bg = 'transparent' if module.background_color.opacity == 0 else module.background_color.color | default('#F3F0EA') %}
+
+<div class="cta-banner" style="background-color: {{ bg }};">
+  <div class="cta-banner__text">
+    {% if module.cta_title %}
+      <p class="cta-banner__title">{{ module.cta_title | escape_html }}</p>
+    {% endif %}
+    {% if module.cta_subtitle %}
+      <p class="cta-banner__subtitle">{{ module.cta_subtitle | escape_html }}</p>
+    {% endif %}
+  </div>
+
+  {% if module.button_text %}
+    <a class="cta-banner__button"
+       href="{{ module.button_link.url.href | default('#') }}"
+       {% if module.button_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+      {{ module.button_text | escape_html }}
+    </a>
+  {% endif %}
+</div>

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "plantas",
+    "label": "Plantas",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 4,
+      "default": 2,
+      "sorting_label_field": "plantas.planta_titulo"
+    },
+    "children": [
+      {
+        "name": "planta_titulo",
+        "label": "Título (ej. Planta Baja)",
+        "type": "text",
+        "default": "Planta"
+      },
+      {
+        "name": "items",
+        "label": "Elementos",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 12,
+          "default": 5
+        },
+        "children": [
+          {
+            "name": "texto",
+            "label": "Texto",
+            "type": "text",
+            "default": "Elemento"
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "planta_titulo": "Planta Baja",
+        "items": [
+          { "texto": "Sala" },
+          { "texto": "Comedor" },
+          { "texto": "Cocina" }
+        ]
+      },
+      {
+        "planta_titulo": "Planta Alta",
+        "items": [
+          { "texto": "Recámaras" },
+          { "texto": "Baños" }
+        ]
+      }
+    ]
+  }
+]

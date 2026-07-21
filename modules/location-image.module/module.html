@@ -1,0 +1,20 @@
+<div class="location-image">
+  {% if module.image.src %}
+    <img class="location-image__bg" src="{{ module.image.src }}" alt="{{ module.image.alt | default('') | escape_attr }}" loading="lazy">
+  {% endif %}
+
+  {% if module.items|length %}
+    <div class="location-image__list">
+      {% for item in module.items %}
+        <div class="location-image__item">
+          {% if item.tiempo %}
+            <span class="location-image__time">{{ item.tiempo | escape_html }}</span>
+          {% endif %}
+          {% if item.lugar %}
+            <span class="location-image__place">{{ item.lugar | escape_html }}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

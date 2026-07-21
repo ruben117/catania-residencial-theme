@@ -1,0 +1,169 @@
+/* ============================================================
+   HERO MODELO
+   Hero de página de detalle de modelo (imagen de fondo por modelo).
+   Mismo patrón que hero-home: overlay oscuro + contenido pegado abajo.
+   La fila principal (texto width=8 + botones width=4) usa
+   align-items:flex-end para anclar ambas columnas al mismo borde
+   inferior. .row-fluid ya es flex por defecto (HubSpot), así que
+   aplicarlo a TODOS los row-fluid de la sección es seguro: en filas
+   de una sola columna (eyebrow/título/descripción/cada botón) no
+   tiene efecto visible.
+   ============================================================ */
+
+.hero-modelo {
+  background-color: var(--primary-color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero-modelo::before {
+  background: linear-gradient(0deg, rgba(7, 23, 48, 0.85) 0%, rgba(7, 23, 48, 0.35) 45%, rgba(7, 23, 48, 0.15) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.hero-modelo .row-fluid {
+  align-items: flex-end;
+  position: relative;
+}
+
+/* Eyebrow (tipo de vivienda, clase escrita directo en el html del rich_text) */
+
+.hero-modelo .hero-modelo__eyebrow {
+  color: var(--secondary-color);
+  font-family: var(--font-family-secondary);
+  font-size: 13px !important;
+  font-weight: 300;
+  letter-spacing: var(--letter-spacing-base);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+/* Título */
+
+.hero-modelo h1 {
+  color: #ffffff;
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: var(--font-weight-heading-black);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+/* Descripción */
+
+.hero-modelo p {
+  color: rgb(255 255 255 / 70%);
+  font-family: var(--font-family-secondary);
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 620px;
+}
+
+/* Botones (columna derecha; alineados a la derecha vía Style tab del módulo) */
+
+.hero-modelo__cta-primary {
+  margin-bottom: 0.75rem;
+}
+
+.hero-modelo__cta-primary .button,
+.hero-modelo__cta-secondary .button {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: var(--font-family-secondary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  width: 300px;
+  justify-content: center;
+}
+
+/* Primario: Descargar Brochure Completo */
+
+.hero-modelo__cta-primary .button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.hero-modelo__cta-primary .button:hover,
+.hero-modelo__cta-primary .button:focus {
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--accent-color) 85%, #000);
+}
+
+.hero-modelo__cta-primary .button::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 15px;
+  margin-right: 0.5rem;
+  width: 15px;
+}
+
+/* Secundario: Recorrido Virtual 360° (glass + ícono play vía CSS) */
+
+.hero-modelo__cta-secondary .button {
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.hero-modelo__cta-secondary .button:hover,
+.hero-modelo__cta-secondary .button:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.hero-modelo__cta-secondary .button::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpolygon points='6 4 20 12 6 20 6 4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 13px;
+  margin-right: 0.5rem;
+  width: 13px;
+}
+
+/* ── Responsive: mobile (≤767px) ─────────────────────────── */
+
+@media (max-width: 767px) {
+  .hero-modelo {
+    padding-bottom: 3rem !important;
+    padding-top: 7rem !important;
+  }
+
+  .hero-modelo::before {
+    background: linear-gradient(0deg, rgba(7, 23, 48, 0.85) 20%, rgba(7, 23, 48, 0.45) 100%);
+  }
+
+  .hero-modelo h1 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .hero-modelo .row-fluid {
+    align-items: flex-start;
+  }
+
+  .hero-modelo__cta-primary {
+    margin-top: 30px;
+  }
+  .hero-modelo__cta-primary .button,
+  .hero-modelo__cta-secondary .button {
+    justify-content: center;
+    width: 100%;
+  }
+}

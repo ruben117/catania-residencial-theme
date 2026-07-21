@@ -1,0 +1,105 @@
+<!--
+  templateType: section
+  label: Hero Modelo
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-modelo.jpg
+  description: "Hero de página de detalle de modelo: imagen de fondo, eyebrow (tipo de vivienda), título, descripción y botones de brochure/recorrido virtual. Construido con módulos default de HubSpot."
+-->
+{% dnd_section
+  class="hero-modelo",
+  background_image={
+    "backgroundSize": "cover",
+    "backgroundPosition": "MIDDLE_CENTER",
+    "imageUrl": get_asset_url("../images/bgk-modelo-monreale.jpg")
+  },
+  padding={
+    "default": { "top": 150, "bottom": 80 },
+    "mobile":  { "top": 80,  "bottom": 50 }
+  }
+%}
+  {% dnd_column offset=0, width=12 %}
+
+    {% dnd_row %}
+
+      {# Columna izquierda — texto #}
+      {% dnd_column offset=0, width=8 %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Eyebrow (tipo de vivienda)",
+            offset=0, width=12,
+            html="<p class=\"hero-modelo__eyebrow\">— Casa Premium Residencial</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Título",
+            offset=0, width=12,
+            html="<h1>Casa Monreale en Catania Residencial — El prototipo premium, desde $3,851,000</h1>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="@hubspot/rich_text",
+            label="Descripción",
+            offset=0, width=12,
+            html="<p>149.18 m² de construcción, recámara principal con Walk-In Closet, sala de TV familiar y 2 cajones de estacionamiento — nuestro modelo más exclusivo.</p>"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+      {% end_dnd_column %}
+
+      {# Columna derecha — botones, alineados a la derecha vía Style tab #}
+      {% dnd_column offset=8, width=4 %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/button",
+            label="CTA brochure",
+            extra_classes="hero-modelo__cta-primary",
+            offset=0, width=12,
+            button_text="Descargar Brochure Completo",
+            link={
+              "url": { "href": "#", "type": "EXTERNAL" },
+              "open_in_new_tab": true,
+              "no_follow": false
+            },
+            styles={
+              "alignment": { "alignment": { "horizontal_align": "RIGHT" } }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/button",
+            label="CTA recorrido virtual",
+            extra_classes="hero-modelo__cta-secondary",
+            offset=0, width=12,
+            button_text="Recorrido Virtual 360°",
+            link={
+              "url": { "href": "#", "type": "EXTERNAL" },
+              "open_in_new_tab": true,
+              "no_follow": false
+            },
+            styles={
+              "alignment": { "alignment": { "horizontal_align": "RIGHT" } }
+            }
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+
+      {% end_dnd_column %}
+
+    {% end_dnd_row %}
+
+  {% end_dnd_column %}
+{% end_dnd_section %}

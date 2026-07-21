@@ -1,0 +1,18 @@
+{% set cols = module.plantas|length if module.plantas|length <= 2 else 2 %}
+
+<div class="floor-plan" style="--cols: {{ cols }};">
+  {% for planta in module.plantas %}
+    <div class="floor-plan__card">
+      {% if planta.planta_titulo %}
+        <div class="floor-plan__header">{{ planta.planta_titulo | escape_html }}</div>
+      {% endif %}
+      {% if planta.items|length %}
+        <ul class="floor-plan__list">
+          {% for item in planta.items %}
+            <li>{{ item.texto | escape_html }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

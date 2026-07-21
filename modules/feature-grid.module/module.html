@@ -18,8 +18,11 @@
 {% end_require_css %}
 
 {% set cols = 3 if module.items|length >= 3 else module.items|length %}
+{% if module.styles.layout.columns and module.styles.layout.columns != 'auto' %}
+  {% set cols = module.styles.layout.columns %}
+{% endif %}
 
-<div class="feature-grid{% if module.items|length > 1 %} feature-grid--divided{% endif %}" style="--cols: {{ cols }};">
+<div class="feature-grid{% if module.items|length > 1 %} feature-grid--divided{% endif %}" data-cols="{{ cols }}" style="--cols: {{ cols }};">
   {% for item in module.items %}
     <div class="feature-grid__item">
       {% if item.icon.src %}

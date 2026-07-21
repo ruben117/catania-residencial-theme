@@ -1,0 +1,33 @@
+[
+  {
+    "name": "cta_title",
+    "label": "Título",
+    "type": "text",
+    "default": "Título del CTA"
+  },
+  {
+    "name": "cta_subtitle",
+    "label": "Subtítulo",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "name": "background_color",
+    "label": "Color de fondo",
+    "type": "color",
+    "default": { "color": "#F3F0EA", "opacity": 100 }
+  },
+  {
+    "name": "button_text",
+    "label": "Texto del botón",
+    "type": "text",
+    "default": "Descargar"
+  },
+  {
+    "name": "button_link",
+    "label": "Enlace del botón",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE"],
+    "default": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": true }
+  }
+]

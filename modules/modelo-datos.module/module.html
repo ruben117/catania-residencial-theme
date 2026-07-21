@@ -1,0 +1,83 @@
+<div class="modelo-datos">
+
+  <div class="modelo-datos__header">
+    {% if module.price_label %}
+      <p class="modelo-datos__price-label">{{ module.price_label | escape_html }}</p>
+    {% endif %}
+    {% if module.price %}
+      <p class="modelo-datos__price">{{ module.price | escape_html }}</p>
+    {% endif %}
+    {% if module.price_caption %}
+      <p class="modelo-datos__price-caption">{{ module.price_caption | escape_html }}</p>
+    {% endif %}
+  </div>
+
+  <div class="modelo-datos__body">
+
+    {% if module.specs|length %}
+      <div class="modelo-datos__specs">
+        {% for spec in module.specs %}
+          <div class="modelo-datos__spec">
+            <span class="modelo-datos__spec-left">
+              {% if spec.spec_icon.src %}
+                <img class="modelo-datos__spec-icon" src="{{ spec.spec_icon.src }}" alt="" loading="lazy">
+              {% endif %}
+              {% if spec.spec_label %}
+                <span class="modelo-datos__spec-label">{{ spec.spec_label | escape_html }}</span>
+              {% endif %}
+            </span>
+            <span class="modelo-datos__spec-value">{{ spec.spec_value | escape_html }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if module.button_text_primary %}
+      <a class="modelo-datos__button modelo-datos__button--primary"
+         href="{{ module.button_link_primary.url.href | default('#') }}"
+         {% if module.button_link_primary.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        {{ module.button_text_primary | escape_html }}
+      </a>
+    {% endif %}
+
+    {% if module.button_text_secondary %}
+      <a class="modelo-datos__button modelo-datos__button--secondary"
+         href="{{ module.button_link_secondary.url.href | default('#') }}"
+         {% if module.button_link_secondary.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        {{ module.button_text_secondary | escape_html }}
+      </a>
+    {% endif %}
+
+    {% if module.disclaimer_text %}
+      <p class="modelo-datos__disclaimer">{{ module.disclaimer_text | escape_html }}</p>
+    {% endif %}
+
+  </div>
+
+  {% if module.other_models|length %}
+    <div class="modelo-datos__others">
+      {% if module.others_title %}
+        <p class="modelo-datos__others-title">{{ module.others_title | escape_html }}</p>
+      {% endif %}
+      {% for item in module.other_models %}
+        <a class="modelo-datos__other-item" href="{{ item.model_link.url.href | default('#') }}">
+          <span class="modelo-datos__other-info">
+            {% if item.model_name %}
+              <span class="modelo-datos__other-name">{{ item.model_name | escape_html }}</span>
+            {% endif %}
+            {% if item.model_type %}
+              <span class="modelo-datos__other-type">{{ item.model_type | escape_html }}</span>
+            {% endif %}
+          </span>
+          <span class="modelo-datos__other-right">
+            {% if item.model_price %}
+              <span class="modelo-datos__other-price">{{ item.model_price | escape_html }}</span>
+            {% endif %}
+            <span class="modelo-datos__other-arrow" aria-hidden="true"></span>
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
