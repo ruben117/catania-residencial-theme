@@ -3,6 +3,27 @@
   label: Footer
 -->
 <footer class="footer" aria-label="Pie de página">
+
+  {# ── Footer top: logos de certificaciones ─────────────────── #}
+  {% module "footer_certificaciones"
+    path="../../modules/logos-certificaciones",
+    label="Logos de certificaciones",
+    logo_altura=70,
+    logo_filtro="blanco",
+    logo_opacidad=85,
+    gap=48,
+    padding_v=28,
+    bg_color={ "color": "#000000", "opacity": 100 },
+    logos=[
+      { "logo_alt": "Grupo Vinte",               "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte.png"),              "alt": "Grupo Vinte" } },
+      { "logo_alt": "Great Place To Work",        "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte-great-to-place-to-work.png"), "alt": "Great Place To Work" } },
+      { "logo_alt": "ESR",                        "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte-esr.png"),                "alt": "ESR" } },
+      { "logo_alt": "Edge",                       "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte-edge.png"),               "alt": "Edge" } },
+      { "logo_alt": "Súper Empresas 2025",        "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte-super-empresas.png"),     "alt": "Súper Empresas 2025" } },
+      { "logo_alt": "Mejores Empresas Mexicanas", "logo_imagen": { "src": get_asset_url("../../images/certificaciones-vinte-mejores-empresas.png"),   "alt": "Mejores Empresas Mexicanas" } }
+    ]
+  %}
+
   <div class="footer__inner content-wrapper">
 
     <div class="footer__row">
