@@ -127,7 +127,7 @@
   display: block;
   font-size: 14px;
   font-weight: 500;
-  padding: 0px 10px;
+  padding: 18px 10px;
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
@@ -135,11 +135,11 @@
 
 .header__nav .menu__link:hover,
 .header__nav .menu__link:focus {
-  color: var(--accent-color);
+  color: var(--secondary-color);
 }
 
 .header__nav .menu__link--active-link {
-  color: var(--accent-color);
+  color: var(--secondary-color);
 }
 
 

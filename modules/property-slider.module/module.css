@@ -1,0 +1,335 @@
+/* ============================================================
+   PROPERTY SLIDER – Real Solare
+   • 2 tarjetas completas + mitad de la tercera
+   • Clic en tarjeta → navega a la URL configurada
+   • Footer: dots + 2 CTAs
+   ============================================================ */
+
+/* ── Contenedor raíz ─────────────────────────────────────── */
+
+.prop-slider {
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ── Viewport wrap (contexto para las flechas) ───────────── */
+
+.prop-slider__viewport-wrap {
+  position: relative;
+}
+
+/* ── Viewport ────────────────────────────────────────────── */
+
+.prop-slider__viewport {
+  overflow: hidden;
+  padding-bottom: 4px;
+}
+
+/* ── Flechas de navegación del carrusel ──────────────────── */
+
+.prop-slider__nav {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  color: #152638;
+  cursor: pointer;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  width: 44px;
+  z-index: 5;
+}
+
+.prop-slider__nav:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 18px rgba(13, 39, 84, 0.28);
+  color: #ffffff;
+  transform: translateY(calc(-50% - 2px));
+}
+
+.prop-slider__nav--prev { left: -22px; }
+.prop-slider__nav--next { right: -22px; }
+
+.prop-slider__nav:disabled {
+  cursor: default;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ── Track ───────────────────────────────────────────────── */
+
+.prop-slider__track {
+  cursor: grab;
+  display: flex;
+  gap: 1.25rem;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+.prop-slider__track.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+/* ── Slide ───────────────────────────────────────────────── */
+
+.prop-slider__slide {
+  flex: 0 0 calc((100% - 2 * 1.25rem) / 2.4);
+  min-width: 0;
+}
+
+/* ── Card: <a> que navega a la URL del prototipo ────────── */
+
+.prop-slider__card {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: block;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.prop-slider__card:hover,
+.prop-slider__card:focus-visible {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+}
+
+.prop-slider__card:focus-visible {
+  outline: 3px solid var(--primary-color, #E0001A);
+  outline-offset: 3px;
+}
+
+/* ── Imagen vertical (3:4) ───────────────────────────────── */
+
+.prop-slider__img-wrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  width: 100%;
+}
+
+.prop-slider__img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  transition: transform 0.5s ease;
+  -webkit-user-drag: none;
+  width: 100%;
+}
+
+.prop-slider__card:hover .prop-slider__img {
+  transform: scale(1.05);
+}
+
+/* ── Ícono expandir (hint visual top-right) ──────────────── */
+
+.prop-slider__expand-icon {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  padding: 6px;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  transition: opacity 0.25s ease, background-color 0.25s ease;
+  z-index: 2;
+}
+
+.prop-slider__card:hover .prop-slider__expand-icon,
+.prop-slider__card:focus-visible .prop-slider__expand-icon {
+  opacity: 1;
+}
+
+/* ── Overlay bottom de la tarjeta ────────────────────────── */
+
+.prop-slider__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(21, 38, 56, 0.95) 0%,
+    rgba(21, 38, 56, 0.65) 45%,
+    rgba(21, 38, 56, 0) 100%
+  );
+  bottom: 0;
+  left: 0;
+  padding: 2.5rem 1.25rem 1.375rem;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.prop-slider__name {
+  color: #ffffff;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.3rem;
+}
+
+.prop-slider__price {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.625rem;
+}
+
+.prop-slider__desc {
+  color: #ffffff;
+  font-size: var(--font-size-base);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
+.prop-slider__footer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1.375rem;
+}
+
+/* ── Dots ────────────────────────────────────────────────── */
+
+.prop-slider__dots {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.prop-slider__dot {
+  background-color: #cdd5df;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 10px;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  width: 10px;
+}
+
+.prop-slider__dot.is-active {
+  background-color: var(--primary-color, #E0001A);
+  transform: scale(1.3);
+}
+
+.prop-slider__dot:hover:not(.is-active) {
+  background-color: #8fa0b4;
+}
+
+/* ── CTAs ────────────────────────────────────────────────── */
+
+.prop-slider__ctas {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+
+.prop-slider__btn {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: var(--font-size-base);
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.prop-slider__btn:hover { transform: translateY(-1px); text-decoration: none; }
+.prop-slider__btn:active { transform: translateY(0); }
+
+.prop-slider__btn--primary {
+  background-color: var(--primary-color, #E0001A);
+  border: 2px solid var(--primary-color, #E0001A);
+  color: #ffffff;
+}
+
+.prop-slider__btn--primary:hover {
+  background-color: #b5001a;
+  border-color: #b5001a;
+  color: #ffffff;
+}
+
+.prop-slider__btn--secondary {
+  background-color: transparent;
+  border: 2px solid var(--primary-color, #E0001A);
+  color: var(--text-color, #2D2D2D);
+}
+
+.prop-slider__btn--secondary:hover {
+  background-color: rgba(224, 0, 26, 0.06);
+  color: var(--primary-color, #E0001A);
+}
+
+
+/* ── Responsive – Tablet ─────────────────────────────────── */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .prop-slider__slide {
+    flex: 0 0 calc((100% - 1.25rem) / 1.65);
+  }
+
+  .prop-slider__name { font-size: 1.375rem; }
+
+  .prop-slider__btn {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.125rem;
+  }
+
+}
+
+/* ── Responsive – Mobile ─────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .prop-slider__track { gap: 1rem; }
+
+  .prop-slider__slide {
+    flex: 0 0 calc(100% - 3.5rem);
+  }
+
+  .prop-slider__name { font-size: 1.25rem; }
+  .prop-slider__price { font-size: 0.875rem; }
+
+  .prop-slider__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .prop-slider__ctas { width: 100%; flex-direction: column;}
+
+  .prop-slider__btn {
+    flex: 1;
+    font-size: 0.875rem;
+    padding: 0.6875rem 1rem;
+    text-align: center;
+  }
+
+}

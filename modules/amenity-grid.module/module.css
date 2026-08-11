@@ -1,25 +1,36 @@
 /* ============================================================
-   AMENITY GRID
-   Grid tipo bento: primer item grande (2 filas) + 2 items apilados
-   a la derecha. Texto overlay abajo-izquierda de cada imagen.
+   AMENITY GRID — SLIDER
+   Slider horizontal (scroll-snap nativo) de amenidades: 1 slide
+   full-width a la vez, imagen con overlay de texto abajo-izquierda,
+   flechas prev/next + dots. El scroll-snap funciona por swipe sin
+   JS; module.js solo agrega flechas/dots y los sincroniza.
    ============================================================ */
 
 .amenity-grid {
-  aspect-ratio: 1.95;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.amenity-grid__item {
-  border-radius: 16px;
-  overflow: hidden;
   position: relative;
 }
 
-.amenity-grid__item:first-child {
-  grid-row: span 2;
+.amenity-grid__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.amenity-grid__track::-webkit-scrollbar {
+  display: none;
+}
+
+.amenity-grid__slide {
+  aspect-ratio: 2.1 / 1;
+  border-radius: 16px;
+  flex: 0 0 100%;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .amenity-grid__image {
@@ -30,69 +41,130 @@
 }
 
 .amenity-grid__overlay {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(0deg, rgb(7 23 48 / 75%) 0%, rgba(0, 0, 0, 0) 85%);
   bottom: 0;
   left: 0;
-  padding: 1.5rem;
+  padding: 10rem 2rem  2rem;
   position: absolute;
   right: 0;
 }
 
 .amenity-grid__eyebrow {
-  color: rgb(255 255 255 / 50%);
-  font-size: 14px;
+  color: rgb(255 255 255 / 60%);
+  font-size: 12px;
   letter-spacing: var(--letter-spacing-base);
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   text-transform: uppercase;
 }
 
 .amenity-grid__heading {
   color: #ffffff;
+  font-size: 22px;
   font-weight: var(--font-weight-heading-black);
-  margin: 0 0 3px;
+  margin: 0 0 4px;
 }
 
 .amenity-grid__description {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
   line-height: 1.5;
   margin: 0;
-  max-width: 430px;
+  max-width: 480px;
 }
 
-/* Item destacado (primero): texto más grande */
+/* Flechas prev/next */
 
-.amenity-grid__item:first-child .amenity-grid__heading {
-  font-size: 20px;
+.amenity-grid__arrow {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50% !important;
+  color: var(--heading-color);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.25rem;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease;
+  width: 40px;
+  z-index: 1;
+  padding: 10px;
 }
 
-.amenity-grid__item:first-child .amenity-grid__description {
-  font-size: 14px;
+.amenity-grid__arrow:hover,
+.amenity-grid__arrow:focus {
+  background-color: #ffffff;
+  color: var(--heading-color);
 }
 
-/* Items secundarios: texto más chico */
-
-.amenity-grid__item:not(:first-child) .amenity-grid__heading {
-  font-size: 15px;
+.amenity-grid__arrow--prev {
+  left: 1rem;
 }
 
-.amenity-grid__item:not(:first-child) .amenity-grid__description {
-  font-size: 12px;
+.amenity-grid__arrow--next {
+  right: 1rem;
+}
+
+/* Dots */
+
+.amenity-grid__dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.amenity-grid__dot {
+  background-color: rgba(13, 39, 84, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 8px;
+  padding: 0;
+  transition: background-color 0.2s ease, width 0.2s ease;
+  width: 8px;
+}
+
+.amenity-grid__dot.is-active {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  width: 22px;
 }
 
 /* ── Responsive: mobile (≤767px) ─────────────────────────── */
 
 @media (max-width: 767px) {
-  .amenity-grid {
-    aspect-ratio: auto;
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .amenity-grid__item {
+  .amenity-grid__slide {
     aspect-ratio: 4 / 3;
   }
 
-  .amenity-grid__item:first-child {
-    grid-row: auto;
+  .amenity-grid__overlay {
+    padding: 1.25rem;
+    padding-top: 6rem;
+  }
+
+  .amenity-grid__heading {
+    font-size: 18px;
+  }
+
+  .amenity-grid__description {
+    font-size: 13px;
+  }
+
+  .amenity-grid__arrow {
+    height: 34px;
+    width: 34px;
+  }
+
+  .amenity-grid__arrow--prev {
+    left: 0.5rem;
+  }
+
+  .amenity-grid__arrow--next {
+    right: 0.5rem;
   }
 }

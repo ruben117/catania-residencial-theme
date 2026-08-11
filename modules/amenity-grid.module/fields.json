@@ -4,8 +4,8 @@
     "label": "Amenidades",
     "type": "group",
     "occurrence": {
-      "min": 3,
-      "max": 3,
+      "min": 1,
+      "max": 12,
       "default": 3,
       "sorting_label_field": "items.heading_text"
     },
@@ -21,9 +21,9 @@
       },
       {
         "name": "eyebrow_text",
-        "label": "Eyebrow (opcional, solo la primera lo usa en el diseño)",
+        "label": "Eyebrow (ej. Amenidad destacada)",
         "type": "text",
-        "default": ""
+        "default": "Amenidad destacada"
       },
       {
         "name": "heading_text",
@@ -47,13 +47,13 @@
       },
       {
         "image": { "src": "", "alt": "Cancha de Pádel Profesional" },
-        "eyebrow_text": "",
+        "eyebrow_text": "Amenidad destacada",
         "heading_text": "Cancha de Pádel Profesional",
         "description_text": "El único desarrollo del perímetro con cancha propia."
       },
       {
         "image": { "src": "", "alt": "Parque Holístico" },
-        "eyebrow_text": "",
+        "eyebrow_text": "Amenidad destacada",
         "heading_text": "Parque Holístico",
         "description_text": "Yoga, meditación y bienestar dentro de tu comunidad."
       }

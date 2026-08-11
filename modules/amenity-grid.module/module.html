@@ -1,19 +1,42 @@
-<div class="amenity-grid">
-  {% for item in module.items %}
-    {% set img_src = item.image.src | default(get_asset_url("../../images/grayscale-mountain.png"), true) %}
-    <div class="amenity-grid__item">
-      <img class="amenity-grid__image" src="{{ img_src }}" alt="{{ item.image.alt | default('') | escape_attr }}" loading="lazy">
-      <div class="amenity-grid__overlay">
-        {% if item.eyebrow_text %}
-          <p class="amenity-grid__eyebrow">{{ item.eyebrow_text | escape_html }}</p>
-        {% endif %}
-        {% if item.heading_text %}
-          <h3 class="amenity-grid__heading">{{ item.heading_text | escape_html }}</h3>
-        {% endif %}
-        {% if item.description_text %}
-          <p class="amenity-grid__description">{{ item.description_text | escape_html }}</p>
-        {% endif %}
+{% set uid = module.unique_id %}
+
+<div class="amenity-grid" data-amenity-slider id="amenity-grid-{{ uid }}">
+
+  <div class="amenity-grid__track" data-amenity-track>
+    {% for item in module.items %}
+      {% set img_src = item.image.src | default(get_asset_url("../../images/grayscale-mountain.png"), true) %}
+      <div class="amenity-grid__slide" data-amenity-slide>
+        <img class="amenity-grid__image" src="{{ img_src }}" alt="{{ item.image.alt | default('') | escape_attr }}" loading="lazy">
+        <div class="amenity-grid__overlay">
+          {% if item.eyebrow_text %}
+            <p class="amenity-grid__eyebrow">{{ item.eyebrow_text | escape_html }}</p>
+          {% endif %}
+          {% if item.heading_text %}
+            <h3 class="amenity-grid__heading">{{ item.heading_text | escape_html }}</h3>
+          {% endif %}
+          {% if item.description_text %}
+            <p class="amenity-grid__description">{{ item.description_text | escape_html }}</p>
+          {% endif %}
+        </div>
       </div>
+    {% endfor %}
+  </div>
+
+  {% if module.items|length > 1 %}
+    <button type="button" class="amenity-grid__arrow amenity-grid__arrow--prev" data-amenity-prev aria-label="Amenidad anterior">‹</button>
+    <button type="button" class="amenity-grid__arrow amenity-grid__arrow--next" data-amenity-next aria-label="Siguiente amenidad">›</button>
+
+    <div class="amenity-grid__dots" data-amenity-dots>
+      {% for item in module.items %}
+        <button
+          type="button"
+          class="amenity-grid__dot{% if loop.first %} is-active{% endif %}"
+          data-amenity-dot
+          data-index="{{ loop.index0 }}"
+          aria-label="Ir a la amenidad {{ loop.index }}"
+        ></button>
+      {% endfor %}
     </div>
-  {% endfor %}
+  {% endif %}
+
 </div>

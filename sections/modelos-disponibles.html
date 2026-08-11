@@ -48,92 +48,9 @@
     {# Fila 2 — grid de modelos #}
     {% dnd_row %}
       {% dnd_module
-        path="../modules/model-grid",
-        label="Grid de modelos",
-        extra_classes="modelos-disponibles__grid",
-        offset=0, width=12,
-        items=[
-          {
-            "images": [
-              { "image": { "src": get_asset_url("../images/modelos-home-vizzini-alberca-edificio.jpg"), "alt": "Vizzini" } },
-              { "image": { "src": get_asset_url("../images/modelos-home-vizzini-alberca.jpg"), "alt": "Vizzini" } }
-            ],
-            "badge_text": "Departamento",
-            "model_name": "Vizzini",
-            "model_type": "Departamento",
-            "price": "$2,182,000 MXN*",
-            "price_caption": "Precio de contado",
-            "specs": [
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelos-construccion.svg"), "alt": "" }, "caption": "", "value": "84.00 m²" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-recamaras.svg"), "alt": "" }, "caption": "Rec.", "value": "3" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-banos.svg"), "alt": "" }, "caption": "Baños", "value": "2" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-cocheras.svg"), "alt": "" }, "caption": "", "value": "1" }
-            ],
-            "description": "Desde 84.00 m² de construcción. Sala, comedor, cocina, 3 recámaras, 2 baños completos y 1 cajón de estacionamiento con espacio para 2 vehículos. Incluye patio trasero (planta baja) o patio de servicio (plantas medias y altas).",
-            "button_text": "Ver Galería y Detalles",
-            "button_link": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
-          },
-          {
-            "images": [
-              { "image": { "src": get_asset_url("../images/modelos-home-malaga-fachada.jpg"), "alt": "Málaga" } },
-              { "image": { "src": get_asset_url("../images/modelos-home-malaga-fachada-2.jpg"), "alt": "Málaga" } }
-            ],
-            "badge_text": "Casa de 2 Plantas",
-            "model_name": "Málaga",
-            "model_type": "Casa de 2 Plantas",
-            "price": "$2,987,000 MXN*",
-            "price_caption": "Precio de contado",
-            "specs": [
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelos-construccion.svg"), "alt": "" }, "caption": "", "value": "95.10 m²" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-recamaras.svg"), "alt": "" }, "caption": "Rec.", "value": "3" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-banos.svg"), "alt": "" }, "caption": "Baños", "value": "2" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-cocheras.svg"), "alt": "" }, "caption": "", "value": "2" }
-            ],
-            "description": "Desde 95.10 m² de construcción. Planta Baja con sala, comedor, cocina, 1/2 baño de visitas y patio de servicio. Planta Alta con 3 recámaras y 2 baños completos. Incluye 2 cajones de estacionamiento.",
-            "button_text": "Solicitar Cotización",
-            "button_link": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
-          },
-          {
-            "images": [
-              { "image": { "src": get_asset_url("../images/modelos-home-scordia-fachada.jpg"), "alt": "Scordia" } },
-              { "image": { "src": get_asset_url("../images/modelos-home-scordia-fachada-2.jpg"), "alt": "Scordia" } }
-            ],
-            "badge_text": "Casa con Jardín Amplio",
-            "model_name": "Scordia",
-            "model_type": "Casa con Jardín Amplio",
-            "price": "$3,320,000 MXN*",
-            "price_caption": "Precio de contado",
-            "specs": [
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelos-construccion.svg"), "alt": "" }, "caption": "", "value": "118.59 m²" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-recamaras.svg"), "alt": "" }, "caption": "Rec.", "value": "3" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-banos.svg"), "alt": "" }, "caption": "Baños", "value": "2" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-cocheras.svg"), "alt": "" }, "caption": "", "value": "2" }
-            ],
-            "description": "Desde 118.59 m² de construcción. 3 recámaras, 2 baños completos, 1/2 baño de visitas, sala, comedor, cocina, patio de servicio y un exclusivo y amplio jardín lateral. Incluye 2 cajones de estacionamiento.",
-            "button_text": "Agendar Visita a Casa Muestra",
-            "button_link": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
-          },
-          {
-            "images": [
-              { "image": { "src": get_asset_url("../images/modelos-home-monreale-fachada.jpg"), "alt": "Monreale" } },
-              { "image": { "src": get_asset_url("../images/modelos-home-monreale-fachada-2.jpg"), "alt": "Monreale" } }
-            ],
-            "badge_text": "Casa Premium Residencial",
-            "model_name": "Monreale",
-            "model_type": "Casa Premium Residencial",
-            "price": "$3,851,000 MXN*",
-            "price_caption": "Precio de contado",
-            "specs": [
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelos-construccion.svg"), "alt": "" }, "caption": "", "value": "149.18 m²" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-recamaras.svg"), "alt": "" }, "caption": "Rec.", "value": "4" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-banos.svg"), "alt": "" }, "caption": "Baños", "value": "3" },
-              { "spec_icon": { "src": get_asset_url("../images/icon-modelo-cocheras.svg"), "alt": "" }, "caption": "", "value": "2" }
-            ],
-            "description": "Nuestro prototipo más exclusivo con 149.18 m² de construcción. Planta Alta con recámara principal con Walk-In Closet y baño independiente, 2 recámaras secundarias, baño completo compartido y sala de TV familiar. Planta Baja con sala, comedor, cocina, 1/2 baño y jardín trasero. Incluye 2 cajones de estacionamiento.",
-            "button_text": "Descargar Brochure Completo",
-            "button_link": { "url": { "href": "#", "type": "EXTERNAL" }, "open_in_new_tab": false }
-          }
-        ]
+        path="../modules/property-slider",
+        label="Prototipos – Slider",
+        extra_classes="prototipos__slider"
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}

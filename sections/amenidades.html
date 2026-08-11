@@ -23,22 +23,40 @@
         offset=0, width=12,
         items=[
           {
-            "image": { "src": get_asset_url("../images/amenidades-home-alberca.jpg"), "alt": "Privadas con Alberca y Palapas" },
+            "image": { "src": get_asset_url("../images/catania-amenidades-cancha-tenis.jpg"), "alt": "Cancha de Pádel Profesional" },
             "eyebrow_text": "Amenidad destacada",
-            "heading_text": "Privadas con Alberca y Palapas",
-            "description_text": "Espacios pensados para la convivencia familiar, con asador, camastros, baños y regaderas"
-          },
-          {
-            "image": { "src": get_asset_url("../images/amenidades-home-cancha-tenis.jpg"), "alt": "Cancha de Pádel Profesional" },
-            "eyebrow_text": "",
             "heading_text": "Cancha de Pádel Profesional",
             "description_text": "El único desarrollo del perímetro con cancha propia."
           },
           {
-            "image": { "src": get_asset_url("../images/amenidades-home-areas-verdes.jpg"), "alt": "Parque Holístico" },
-            "eyebrow_text": "",
+            "image": { "src": get_asset_url("../images/catania-amenidades-cancha-futbol.jpg"), "alt": "Sport Center y Cancha de Fútbol 7" },
+            "eyebrow_text": "Amenidad destacada",
+            "heading_text": "Sport Center y Cancha de Fútbol 7",
+            "description_text": "Mantente activo en nuestro gimnasio equipado y organiza partidos sin salir de casa. La cancha de futbol 7 se encuentra en el parque principal, no en cada privada."
+          },
+          {
+            "image": { "src": get_asset_url("../images/catania-amenidades-privadas-alberca.jpg"), "alt": "Privadas con Alberca y Palapas" },
+            "eyebrow_text": "Amenidad destacada",
+            "heading_text": "Privadas con Alberca y Palapas",
+            "description_text": "Espacios de relajación y descanso pensados para la convivencia familiar. Cuenta con asador, camastros, baños y regaderas"
+          },
+          {
+            "image": { "src": get_asset_url("../images/catania-amenidades-parque-holistico.jpg"), "alt": "Parque Holístico" },
+            "eyebrow_text": "Amenidad destacada",
             "heading_text": "Parque Holístico",
-            "description_text": "Yoga, meditación y bienestar dentro de tu comunidad."
+            "description_text": 'Un espacio al aire libre diseñado para yoga, meditación y actividades de bienestar, dentro de tu propia comunidad. (antes: "tu tranquilidad espiritual")'
+          },
+          {
+            "image": { "src": get_asset_url("../images/catania-amenidades-dog-park.jpg"), "alt": "Parque para Perros" },
+            "eyebrow_text": "Amenidad destacada",
+            "heading_text": "Parque para Perros",
+            "description_text": "Área verde exclusiva para que tu mejor amigo se divierta sin salir del desarrollo. Por que ellos también son parte de la familia."
+          },
+          {
+            "image": { "src": get_asset_url("../images/catania-amenidades-acceso-controlado.jpg"), "alt": "Accesos controlados 24/7" },
+            "eyebrow_text": "Amenidad destacada",
+            "heading_text": "Accesos controlados 24/7",
+            "description_text": "Disfruta de un entorno tranquilo con mantenimiento constante de las áreas comunes y lineamientos que ayudan a preservar el orden, la convivencia y la plusvalía del desarrollo."
           }
         ]
       %}
@@ -66,8 +84,8 @@
           },
           {
             "icon": { "src": get_asset_url("../images/icon-amenidades-control-acceso.svg"), "alt": "" },
-            "title": "Régimen Condominal Estricto",
-            "description": "Asociación Civil por fase: calles sin tráfico, áreas verdes cuidadas y cero ruidos.",
+            "title": "Zona de Albercas y Asadores por Privada",
+            "description": "Todas nuestras privadas cuentan con alberca, camastros, palapa, baños, regaderas y zonas para asar.",
             "bullets": []
           },
           {
@@ -89,22 +107,6 @@
             "bullets": []
           }
         ]
-      %}
-      {% end_dnd_module %}
-    {% end_dnd_row %}
-
-    {% dnd_row %}
-      {% dnd_module
-        path="../modules/button",
-        extra_classes="cta__bordered",
-        button_text={{ context.button_text or "Conocer todas las amenidades" }},
-        styles={
-          "alignment": {
-            "alignment": {
-              "horizontal_align": "CENTER"
-            }
-          }
-        }
       %}
       {% end_dnd_module %}
     {% end_dnd_row %}
