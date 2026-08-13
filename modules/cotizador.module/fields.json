@@ -1,0 +1,214 @@
+[
+  {
+    "id": "tipos_credito",
+    "name": "tipos_credito",
+    "label": "Tipos de crédito",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 2, "sorting_label_field": "tipos_credito.tipo_titulo" },
+    "children": [
+      {
+        "id": "tipo_titulo",
+        "name": "tipo_titulo",
+        "label": "Título",
+        "type": "text",
+        "required": false,
+        "default": "Infonavit"
+      },
+      {
+        "id": "tipo_icono",
+        "name": "tipo_icono",
+        "label": "Ícono (SVG o PNG)",
+        "type": "image",
+        "required": false
+      },
+      {
+        "id": "tipo_tasa",
+        "name": "tipo_tasa",
+        "label": "Tasa mensual (%)",
+        "type": "number",
+        "required": false,
+        "default": 1,
+        "help_text": "Porcentaje mensual del monto de crédito (1 = 1%)."
+      }
+    ],
+    "default": [
+      { "tipo_titulo": "Infonavit", "tipo_icono": { "src": "", "alt": "Infonavit" }, "tipo_tasa": 1 },
+      { "tipo_titulo": "Bancario",  "tipo_icono": { "src": "", "alt": "Bancario" },  "tipo_tasa": 1 }
+    ]
+  },
+  {
+    "id": "opciones_enganche",
+    "name": "opciones_enganche",
+    "label": "Opciones de enganche",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 2, "sorting_label_field": "opciones_enganche.eng_pct" },
+    "children": [
+      {
+        "id": "eng_pct",
+        "name": "eng_pct",
+        "label": "Porcentaje (%)",
+        "type": "number",
+        "required": false,
+        "default": 10
+      }
+    ]
+  },
+  {
+    "id": "prototipos",
+    "name": "prototipos",
+    "label": "Prototipos",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 5, "sorting_label_field": "prototipos.proto_nombre" },
+    "children": [
+      {
+        "id": "proto_nombre",
+        "name": "proto_nombre",
+        "label": "Nombre del prototipo",
+        "type": "text",
+        "required": false,
+        "default": "Prototipo"
+      },
+      {
+        "id": "proto_tipo",
+        "name": "proto_tipo",
+        "label": "Tipo de vivienda",
+        "type": "choice",
+        "choices": [
+          ["departamento", "Departamento"],
+          ["casa", "Casa"]
+        ],
+        "default": "departamento"
+      },
+      {
+        "id": "proto_icono",
+        "name": "proto_icono",
+        "label": "Ícono (opcional, sobreescribe el ícono automático)",
+        "type": "image",
+        "required": false
+      },
+      {
+        "id": "proto_precio",
+        "name": "proto_precio",
+        "label": "Precio base ($MXN)",
+        "type": "number",
+        "required": false,
+        "default": 2399000
+      }
+    ]
+  },
+  {
+    "id": "equipamientos",
+    "name": "equipamientos",
+    "label": "Equipamiento (paso 3)",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 10, "default": 0 },
+    "children": [
+      {
+        "id": "equip_nombre",
+        "name": "equip_nombre",
+        "label": "Nombre del equipamiento",
+        "type": "text",
+        "required": false,
+        "default": "Equipamiento"
+      },
+      {
+        "id": "equip_descripcion",
+        "name": "equip_descripcion",
+        "label": "Descripción (ej: Paquete Premium)",
+        "type": "text",
+        "required": false,
+        "default": ""
+      },
+      {
+        "id": "equip_icono",
+        "name": "equip_icono",
+        "label": "Ícono (SVG o PNG)",
+        "type": "image",
+        "required": false
+      },
+      {
+        "id": "equip_precio",
+        "name": "equip_precio",
+        "label": "Precio adicional ($MXN)",
+        "type": "number",
+        "required": false,
+        "default": 0,
+        "help_text": "0 si el equipamiento está incluido sin costo extra."
+      }
+    ]
+  },
+  {
+    "id": "cta_texto",
+    "name": "cta_texto",
+    "label": "Texto del botón principal",
+    "type": "text",
+    "required": false,
+    "default": "Iniciar trámite"
+  },
+  {
+    "id": "form_guid",
+    "name": "form_guid",
+    "label": "Form GUID de HubSpot",
+    "type": "text",
+    "required": false,
+    "default": "",
+    "help_text": "GUID del formulario. Visible en la URL al editar el formulario en HubSpot."
+  },
+  {
+    "id": "form_titulo",
+    "name": "form_titulo",
+    "label": "Título del formulario",
+    "type": "text",
+    "required": false,
+    "default": "",
+    "help_text": "Si se deja vacío se genera automáticamente como \"Continúa tu trámite para [Prototipo]\"."
+  },
+  {
+    "id": "form_descripcion",
+    "name": "form_descripcion",
+    "label": "Descripción del formulario",
+    "type": "text",
+    "required": false,
+    "default": "Déjanos tus datos y un asesor se pondrá en contacto contigo para continuar tu trámite."
+  },
+  {
+    "id": "btn_enviar_texto",
+    "name": "btn_enviar_texto",
+    "label": "Texto del botón Enviar",
+    "type": "text",
+    "required": false,
+    "default": "Enviar"
+  },
+  {
+    "id": "gracias_titulo",
+    "name": "gracias_titulo",
+    "label": "Título del mensaje de gracias",
+    "type": "text",
+    "required": false,
+    "default": "¡Todo listo!"
+  },
+  {
+    "id": "gracias_mensaje",
+    "name": "gracias_mensaje",
+    "label": "Mensaje de gracias",
+    "type": "text",
+    "required": false,
+    "default": "Gracias por tu interés. Un asesor de Catania Residencial se pondrá en contacto contigo muy pronto para continuar tu trámite."
+  },
+  {
+    "id": "whatsapp_numero",
+    "name": "whatsapp_numero",
+    "label": "Número de WhatsApp (solo dígitos)",
+    "type": "text",
+    "required": false,
+    "default": "5550107360"
+  },
+  {
+    "id": "disclaimer",
+    "name": "disclaimer",
+    "label": "Texto de disclaimer",
+    "type": "text",
+    "required": false,
+    "default": "*Mensualidad estimada a 20 años. No incluye gastos notariales ni avalúo. Sujeto a cambios sin previo aviso. La mensualidad real considera el ahorro proyectado en servicios de luz y agua."
+  }
+]
